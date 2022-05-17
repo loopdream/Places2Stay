@@ -13,61 +13,43 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
   useColorScheme,
   View,
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-import Text from './base/Text/Text';
+// import Text from './base/Text/Text';
 import SectionHeader from './base/SectionHeader/SectionHeader';
+import { colors } from '../globals/constants';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: colors.sand,
+    flex: 1,
+    padding: 24,
+    paddingTop: 0,
   };
+  const headingCopy = 'Find your getaway';
+  const descriptionCopy =
+    'Our spaces are designed for comfort - whether you are working, relaxing, or craving some spaces';
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar barStyle="dark-content" />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <SectionHeader
-          heading="This is a heading"
-          description="This is a description"
-        />
+        <SectionHeader heading={headingCopy} description={descriptionCopy} />
         <View
           style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            backgroundColor: colors.sand,
           }}>
-          <Text styles={{ color: 'green' }}>Hello Metalab!</Text>
+          {/* <Text styles={{ color: 'red' }}>Hello Metalab!</Text> */}
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;

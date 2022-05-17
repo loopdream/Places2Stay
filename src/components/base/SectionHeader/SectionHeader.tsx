@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { Text as HeaderText } from '../Text';
 import { Text as DescriptionText } from '../Text';
+import { colors } from '../../../globals/constants';
 
 export type Props = {
   heading: string;
@@ -13,9 +14,9 @@ export type Props = {
 const SectionHeader: FC<Props> = ({ heading, description }) => {
   return (
     <>
-      <HeaderText style={styles.header}>{heading}</HeaderText>
+      <HeaderText styles={styles.header}>{heading}</HeaderText>
       {description && (
-        <DescriptionText style={styles.description}>
+        <DescriptionText styles={styles.description}>
           {description}
         </DescriptionText>
       )}
@@ -24,8 +25,23 @@ const SectionHeader: FC<Props> = ({ heading, description }) => {
 };
 
 const styles = StyleSheet.create({
-  header: {},
-  description: {},
+  header: {
+    // fontFamily: 'Bitter',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: 24,
+    lineHeight: 29,
+    color: colors.black,
+    marginTop: 32,
+  },
+  description: {
+    // fontFamily: 'Encode Sans',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: 12,
+    lineHeight: 15,
+    marginTop: 8,
+  },
 });
 
 export default SectionHeader;
