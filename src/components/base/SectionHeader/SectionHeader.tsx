@@ -11,22 +11,20 @@ export type Props = {
   variant?: string;
 };
 
-const SectionHeader: FC<Props> = ({ heading, description }) => {
-  return (
-    <>
-      <HeaderText styles={styles.header}>{heading}</HeaderText>
-      {description && (
-        <DescriptionText styles={styles.description}>
-          {description}
-        </DescriptionText>
-      )}
-    </>
-  );
-};
+const SectionHeader: FC<Props> = ({ heading, description }) => (
+  <>
+    <HeaderText styles={styles.header}>{heading}</HeaderText>
+    {description && (
+      <DescriptionText styles={styles.description}>
+        {description}
+      </DescriptionText>
+    )}
+  </>
+);
 
 const styles = StyleSheet.create({
   header: {
-    // fontFamily: 'Bitter',
+    // todo fontFamily: 'Bitter',
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: 24,
@@ -35,7 +33,7 @@ const styles = StyleSheet.create({
     marginTop: 32,
   },
   description: {
-    // fontFamily: 'Encode Sans',
+    // todo fontFamily: 'Encode Sans',
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: 12,

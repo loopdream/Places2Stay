@@ -19,13 +19,7 @@ import {
 
 // import Text from './base/Text/Text';
 import SectionHeader from './base/SectionHeader/SectionHeader';
-import { colors } from '../globals/constants';
-
-const text = {
-  heading: 'Find your getaway',
-  description:
-    'Our spaces are designed for comfort - whether you are working, relaxing, or craving some spaces',
-};
+import { colors, text } from '../globals/constants';
 
 const App = () => (
   <SafeAreaView style={styles.safeAreaView}>
@@ -33,7 +27,10 @@ const App = () => (
     <ScrollView
       contentInsetAdjustmentBehavior="automatic"
       style={styles.scrollView}>
-      <SectionHeader heading={text.heading} description={text.description} />
+      <SectionHeader
+        heading={text.home.sectionHeading.heading}
+        description={text.home.sectionHeading.description}
+      />
       <View>{/* <Text styles={{ color: 'red' }}>Hello Metalab!</Text> */}</View>
     </ScrollView>
   </SafeAreaView>

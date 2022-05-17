@@ -12,7 +12,6 @@ export type Props = {
 };
 
 const Text: FC<Props & RNTextProps> = ({ children, styles }) => {
-  console.log({ styles });
   return <RNText style={styles}>{children}</RNText>;
 };
 
