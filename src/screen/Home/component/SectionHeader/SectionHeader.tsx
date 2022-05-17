@@ -1,9 +1,12 @@
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Text as HeaderText } from '../Text';
-import { Text as DescriptionText } from '../Text';
-import { colors } from '../../../globals/constants';
+import {
+  Text as HeaderText,
+  Text as DescriptionText,
+} from 'components/base/Text';
+
+import { colors } from 'globals/constants';
 
 export type Props = {
   heading: string;

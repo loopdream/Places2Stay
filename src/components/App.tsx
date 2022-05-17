@@ -9,33 +9,30 @@
  */
 
 import React from 'react';
-import {
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  View,
-} from 'react-native';
+import { StyleSheet, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
-// import Text from './base/Text/Text';
-import SectionHeader from './base/SectionHeader/SectionHeader';
-import { colors, text } from '../globals/constants';
+import { SectionHeader } from 'screen/Home/component/SectionHeader';
+import { PlaceCta } from 'screen/Home/component/PlaceCta';
+import { colors, text, places } from 'globals/constants';
 
-const App = () => (
-  <SafeAreaView style={styles.safeAreaView}>
-    <StatusBar barStyle="dark-content" />
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      style={styles.scrollView}>
-      <SectionHeader
-        heading={text.home.sectionHeading.heading}
-        description={text.home.sectionHeading.description}
-      />
-      <View>{/* <Text styles={{ color: 'red' }}>Hello Metalab!</Text> */}</View>
-    </ScrollView>
-  </SafeAreaView>
-);
+const App = () => {
+  const renderListItems = places.map(item => <PlaceCta {...item} />);
 
+  return (
+    <SafeAreaView style={styles.safeAreaView}>
+      <StatusBar barStyle="dark-content" />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={styles.scrollView}>
+        <SectionHeader
+          heading={text.home.sectionHeading.heading}
+          description={text.home.sectionHeading.description}
+        />
+        {renderListItems}
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 const styles = StyleSheet.create({
   safeAreaView: {
     backgroundColor: colors.sand,

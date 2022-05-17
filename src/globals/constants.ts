@@ -17,12 +17,14 @@ const places = [
   {
     title: '408 St. Jacques | 1 Br',
     location: 'Old Montreal, Montreal',
-    image: '',
+    imageSrc: 'https://unsplash.com/photos/3b2tADGAWnU',
+    imageLabel: 'From $126',
   },
   {
     title: '409 St. Jacques | 2 Br',
     location: 'Old Montreal, Montreal',
-    image: '',
+    imageSrc: 'https://unsplash.com/photos/3b2tADGAWnU',
+    imageLabel: 'From $126',
   },
 ];
 

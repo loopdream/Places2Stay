@@ -11,8 +11,8 @@ export type Props = {
   variant?: string;
 };
 
-const Text: FC<Props & RNTextProps> = ({ children, styles }) => {
-  return <RNText style={styles}>{children}</RNText>;
-};
+const Text: FC<Props & RNTextProps> = ({ children, styles }) => (
+  <RNText style={styles}>{children}</RNText>
+);
 
 export default Text;
