@@ -13,4 +13,17 @@ const text = {
   },
 };
 
-export { colors, text };
+const places = [
+  {
+    title: '408 St. Jacques | 1 Br',
+    location: 'Old Montreal, Montreal',
+    image: '',
+  },
+  {
+    title: '409 St. Jacques | 2 Br',
+    location: 'Old Montreal, Montreal',
+    image: '',
+  },
+];
+
+export { colors, text, places };
