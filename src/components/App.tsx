@@ -77,7 +77,7 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text2 styles={{  { color: 'blue' }}}>Hello Metalab!</Text2>
+          <Text2 styles={{ color: 'green' }}>Hello Metalab!</Text2>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
