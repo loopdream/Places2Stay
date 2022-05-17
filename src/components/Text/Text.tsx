@@ -1,24 +1,17 @@
 import React, { FC, ReactNode } from 'react';
-import { Text as RNText, StyleSheet, TextStyle, StyleProp } from 'react-native';
-
-export type Styles = {
-  baseText: StyleProp<TextStyle>;
-};
+import {
+  Text as RNText,
+  TextStyle as RNTextStyleProps,
+  TextProps as RNTextProps,
+} from 'react-native';
 
 export type Props = {
-  styles?: Styles;
+  styles?: RNTextStyleProps;
   children: ReactNode;
 };
 
-const Text: FC<Props> = ({ children, styles }) => (
-  <RNText style={[TextStyles.baseText, styles?.baseText]}>{children}</RNText>
+const Text: FC<Props & RNTextProps> = ({ children, styles }) => (
+  <RNText style={styles}>{children}</RNText>
 );
-
-const TextStyles = StyleSheet.create({
-  baseText: {
-    fontFamily: 'Cochin',
-    color: 'red',
-  },
-});
 
 export default Text;
