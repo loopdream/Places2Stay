@@ -8,6 +8,7 @@ import {
 export type Props = {
   styles?: RNTextStyleProps;
   children: ReactNode;
+  variant?: string;
 };
 
 const Text: FC<Props & RNTextProps> = ({ children, styles }) => (
