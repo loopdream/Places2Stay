@@ -14,50 +14,14 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-import Text2 from './Text/Text';
-
-console.log({ Text2 });
-
-const Section: React.FC<{
-  title: string;
-}> = ({ children, title }) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+import Text from './Text/Text';
+import SectionHeader from './SectionHeader/SectionHeader';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -72,26 +36,15 @@ const App = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        <SectionHeader
+          heading="This is a heading"
+          description="This is a description"
+        />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text2 styles={{ color: 'green' }}>Hello Metalab!</Text2>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <Text styles={{ color: 'green' }}>Hello Metalab!</Text2>
         </View>
       </ScrollView>
     </SafeAreaView>

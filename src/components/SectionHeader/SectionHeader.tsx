@@ -7,7 +7,7 @@ import { Text as DescriptionText } from '../Text';
 export type Props = {
   heading: string;
   description?: string;
-  x;
+  variant?: string;
 };
 
 const SectionHeader: FC<Props> = ({ heading, description }) => {
