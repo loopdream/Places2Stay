@@ -20,8 +20,8 @@ import {
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-import Text from './Text/Text';
-import SectionHeader from './SectionHeader/SectionHeader';
+import Text from './base/Text/Text';
+import SectionHeader from './base/SectionHeader/SectionHeader';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -44,7 +44,7 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text styles={{ color: 'green' }}>Hello Metalab!</Text2>
+          <Text styles={{ color: 'green' }}>Hello Metalab!</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
