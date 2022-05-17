@@ -33,10 +33,7 @@ const App = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <SectionHeader heading={headingCopy} description={descriptionCopy} />
-        <View
-          style={{
-            backgroundColor: colors.sand,
-          }}>
+        <View>
           {/* <Text styles={{ color: 'red' }}>Hello Metalab!</Text> */}
         </View>
       </ScrollView>
