@@ -9,15 +9,7 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
 
 // import Text from './base/Text/Text';
 import SectionHeader from './base/SectionHeader/SectionHeader';
