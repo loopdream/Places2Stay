@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StyleSheet } from 'react-native';
+import { View as SectionHeaderView, StyleSheet } from 'react-native';
 
 import {
   Text as HeaderText,
@@ -8,39 +8,43 @@ import {
 
 import colors from 'globals/colors';
 
-export type Props = {
+export type SectionHeaderProps = {
   heading: string;
   description?: string;
   variant?: string;
 };
 
-const SectionHeader: FC<Props> = ({ heading, description }) => (
-  <>
-    <HeaderText styles={styles.header}>{heading}</HeaderText>
+const SectionHeader: FC<SectionHeaderProps> = ({ heading, description }) => (
+  <SectionHeaderView style={styles.container}>
+    <HeaderText styles={StyleSheet.flatten([styles.font, styles.header])}>
+      {heading}
+    </HeaderText>
     {description && (
-      <DescriptionText styles={styles.description}>
+      <DescriptionText
+        styles={StyleSheet.flatten([styles.font, styles.description])}>
         {description}
       </DescriptionText>
     )}
-  </>
+  </SectionHeaderView>
 );
 
 const styles = StyleSheet.create({
-  header: {
-    // todo fontFamily: 'Bitter',
+  container: {
+    marginBottom: 16,
+  },
+  font: {
     fontStyle: 'normal',
     fontWeight: '400',
-    fontSize: 24,
-    lineHeight: 29,
     color: colors.black,
-    marginTop: 32,
+  },
+  header: {
+    fontSize: 24,
+    marginBottom: 20,
+    // todo fontFamily: 'Bitter',
   },
   description: {
-    // todo fontFamily: 'Encode Sans',
-    fontStyle: 'normal',
-    fontWeight: '400',
     fontSize: 12,
-    lineHeight: 15,
+    // todo fontFamily: 'Encode Sans',
     marginTop: 8,
   },
 });

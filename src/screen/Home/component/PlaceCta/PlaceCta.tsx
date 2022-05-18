@@ -16,14 +16,19 @@ import {
 
 import colors from 'globals/colors';
 
-export type Props = {
+export type PlaceCtaProps = {
   place: string;
   location?: string;
   image: ImageProps['source'];
   imageLabel?: string;
 };
 
-const PlaceCta: FC<Props> = ({ imageLabel, image, place, location }) => (
+const PlaceCta: FC<PlaceCtaProps> = ({
+  imageLabel,
+  image,
+  place,
+  location,
+}) => (
   <View style={styles.container}>
     <ImageWrapper style={styles.imageWrapper}>
       <Image style={styles.image} source={image} />
@@ -57,7 +62,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'relative',
-    objectFit: 'cover',
+    resizeMode: 'cover',
   },
   imageLabel: {
     backgroundColor: colors.orange,

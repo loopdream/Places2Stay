@@ -3,6 +3,7 @@ const colors = {
   black: '#000000',
   grey: '#858585',
   orange: '#FFA500',
+  white: '#FFFFFF',
 };
 
 export default colors;
