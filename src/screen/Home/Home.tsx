@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Text } from 'react-native';
 
-const Search: FC = () => <Text>SEARCH</Text>;
+const Home: FC = () => <Text>HELLO METALAB</Text>;
 
-export default Search;
+export default Home;

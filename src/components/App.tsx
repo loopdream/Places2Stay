@@ -11,9 +11,11 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
-import { SectionHeader } from 'screen/Home/component/SectionHeader';
-import { PlaceCta } from 'screen/Home/component/PlaceCta';
-import { colors, text, places } from 'globals/constants';
+// import { Home } from 'screen/Home';
+import { SectionHeader, PlaceCta } from 'screen/Home/component';
+import { places, text } from 'screen/Home/homeMockData';
+
+import colors from 'globals/colors';
 
 const App = () => {
   const renderListItems = places.map(item => <PlaceCta {...item} />);
@@ -21,12 +23,13 @@ const App = () => {
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <StatusBar barStyle="dark-content" />
+
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.scrollView}>
         <SectionHeader
-          heading={text.home.sectionHeading.heading}
-          description={text.home.sectionHeading.description}
+          heading={text.sectionHeading.heading}
+          description={text.sectionHeading.description}
         />
         {renderListItems}
       </ScrollView>
@@ -40,6 +43,8 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     padding: 24,
+    paddingLeft: 50,
+    paddingRight: 50,
     paddingTop: 0,
   },
 });

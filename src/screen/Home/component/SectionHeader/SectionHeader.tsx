@@ -6,7 +6,7 @@ import {
   Text as DescriptionText,
 } from 'components/base/Text';
 
-import { colors } from 'globals/constants';
+import colors from 'globals/colors';
 
 export type Props = {
   heading: string;
