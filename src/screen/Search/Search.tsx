@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     padding: 50,
     paddingTop: 30,
     paddingBottom: 30,
+    position: 'absolute',
+    width: '100%',
+    zIndex: 1,
   },
   textInput: {
     backgroundColor: colors.white,

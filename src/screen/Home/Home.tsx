@@ -1,44 +1,49 @@
 import React, { FC, useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, SectionList, StatusBar } from 'react-native';
 
 import { Search } from 'screen/Search';
-import { PlaceCtaProps } from './component/PlaceCta';
 import { SectionHeader, PlaceCta } from './component';
-import HomeData from './homeMockData';
+import homeMockData from './homeMockData';
 
 const Home: FC = () => {
-  const [places, setPlaces] = useState([] as PlaceCtaProps[]);
+  const [sections, setSections] = useState([] as any);
 
   useEffect(() => {
-    setPlaces(HomeData.placesArray);
+    const { placeCtas, cityCtas } = homeMockData.sections;
+    setSections([placeCtas, cityCtas]);
   }, []);
 
-  const renderPlaces = places.map((item, i) => (
-    <PlaceCta key={i.toString()} {...item} />
-  ));
-
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Search />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.scrollView}>
-        <SectionHeader
-          heading={HomeData.sectionHeader.heading}
-          description={HomeData.sectionHeader.description}
-        />
-        {renderPlaces}
-      </ScrollView>
+      <SectionList
+        style={styles.list}
+        sections={sections}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item }) => <PlaceCta key={item.id} {...item} />}
+        renderSectionHeader={({ section: { heading, description } }) => (
+          <SectionHeader heading={heading} description={description} />
+        )}
+        stickySectionHeadersEnabled={false}
+      />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    padding: 24,
-    paddingLeft: 50,
-    paddingRight: 50,
-    paddingTop: 0,
+  list: {
+    paddingTop: 150,
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
+  },
+  container: {
+    flex: 1,
+    marginHorizontal: 16,
   },
 });
 
