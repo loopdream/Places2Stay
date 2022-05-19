@@ -45,34 +45,46 @@ const homeMockData = {
     },
     cityCtas: {
       heading: '20+ cities to explore',
-      isHorizontal: true,
+      orientation: 'horizontal',
       data: [
-        {
-          key: 1,
-          image: '',
-          place: 'Miami',
-        },
-        {
-          key: 2,
-          image: '',
-          place: 'New York',
-          imageLabel: 'New',
-        },
-        {
-          key: 3,
-          image: '',
-          place: 'Montreal',
-        },
-        {
-          key: 4,
-          image: '',
-          place: 'Vancouver',
-        },
-        {
-          key: 5,
-          image: '',
-          place: 'Toronto',
-        },
+        [
+          {
+            key: 1,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+            },
+            place: 'Miami',
+          },
+          {
+            key: 2,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+            },
+            place: 'New York',
+            imageLabel: 'New',
+          },
+          {
+            key: 3,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+            },
+            place: 'Montreal',
+          },
+          {
+            key: 4,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+            },
+            place: 'Vancouver',
+          },
+          {
+            key: 5,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+            },
+            place: 'Toronto',
+          },
+        ],
       ],
     },
   },

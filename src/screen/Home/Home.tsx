@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView, SectionList } from 'react-native';
+import { StyleSheet, SafeAreaView, SectionList, FlatList } from 'react-native';
 
 import { Search } from 'screen/Search';
 import { SectionHeader, PlaceCta } from './component';
@@ -13,17 +13,41 @@ const Home: FC = () => {
     setSections([placeCtas, cityCtas]);
   }, []);
 
+  const keyExtractor = (item: any, index: number) => item + index;
+
+  const renderItem = ({ section, item }: { section: any; item: any }) => {
+    if (section.orientation === 'horizontal') {
+      // carousel
+      return (
+        <FlatList
+          horizontal
+          data={section.data[0]}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={keyExtractor}
+          renderItem={({ item: city }) => <PlaceCta key={city.key} {...city} />}
+        />
+      );
+    }
+    // list
+    return <PlaceCta key={item.key} {...item} />;
+  };
+
+  const renderSectionHeader = ({ section }: { section: any }) => (
+    <SectionHeader
+      heading={section.heading}
+      description={section.description}
+    />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <Search />
       <SectionList
         style={styles.list}
         sections={sections}
-        keyExtractor={(item, index) => item + index}
-        renderItem={({ item }) => <PlaceCta key={item.id} {...item} />}
-        renderSectionHeader={({ section: { heading, description } }) => (
-          <SectionHeader heading={heading} description={description} />
-        )}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
+        renderSectionHeader={renderSectionHeader}
         stickySectionHeadersEnabled={false}
       />
     </SafeAreaView>
