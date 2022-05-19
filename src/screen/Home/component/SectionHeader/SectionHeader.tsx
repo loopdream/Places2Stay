@@ -6,7 +6,7 @@ import {
   Text as DescriptionText,
 } from 'components/base/Text';
 
-import colors from 'globals/colors';
+import { colors } from 'globals';
 
 export type SectionHeaderProps = {
   heading: string;

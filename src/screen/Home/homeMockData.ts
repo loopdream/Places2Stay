@@ -6,7 +6,7 @@ const homeMockData = {
         'Our spaces are designed for comfort - whether you are working, relaxing, or craving some spaces',
       data: [
         {
-          id: 1,
+          key: 1,
           place: '408 St. Jacques | 1 Br',
           location: 'Old Montreal, Montreal',
           image: {
@@ -15,7 +15,7 @@ const homeMockData = {
           imageLabel: 'From $126',
         },
         {
-          id: 2,
+          key: 2,
           place: '409 St. Jacques | 2 Br',
           location: 'Old Montreal, Montreal',
           image: {
@@ -24,7 +24,7 @@ const homeMockData = {
           imageLabel: 'From $126',
         },
         {
-          id: 3,
+          key: 3,
           place: '409 St. Jacques | 2 Br',
           location: 'Old Montreal, Montreal',
           image: {
@@ -33,7 +33,7 @@ const homeMockData = {
           imageLabel: 'From $126',
         },
         {
-          id: 4,
+          key: 4,
           place: '409 St. Jacques | 2 Br',
           location: 'Old Montreal, Montreal',
           image: {
@@ -48,28 +48,28 @@ const homeMockData = {
       isHorizontal: true,
       data: [
         {
-          id: 1,
+          key: 1,
           image: '',
           place: 'Miami',
         },
         {
-          id: 2,
+          key: 2,
           image: '',
           place: 'New York',
           imageLabel: 'New',
         },
         {
-          id: 3,
+          key: 3,
           image: '',
           place: 'Montreal',
         },
         {
-          id: 4,
+          key: 4,
           image: '',
           place: 'Vancouver',
         },
         {
-          id: 5,
+          key: 5,
           image: '',
           place: 'Toronto',
         },

@@ -14,7 +14,7 @@ import {
   Text as ImageLabelText,
 } from 'components/base/Text';
 
-import colors from 'globals/colors';
+import { colors } from 'globals';
 
 export type PlaceCtaProps = {
   place: string;
@@ -72,8 +72,7 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     padding: 16,
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingVertical: 10,
   },
   imageLabelText: {
     backgroundColor: colors.orange,

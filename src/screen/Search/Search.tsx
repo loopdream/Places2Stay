@@ -5,7 +5,7 @@ export type SearchProps = {
   placeholder?: string;
 };
 
-import colors from 'globals/colors';
+import { colors } from 'globals';
 
 const Search: FC<SearchProps> = ({ placeholder = 'Try Boston' }) => (
   <SearchView style={styles.container}>
@@ -20,8 +20,7 @@ const Search: FC<SearchProps> = ({ placeholder = 'Try Boston' }) => (
 const styles = StyleSheet.create({
   container: {
     padding: 50,
-    paddingTop: 30,
-    paddingBottom: 30,
+    paddingVertical: 30,
     position: 'absolute',
     width: '100%',
     zIndex: 1,

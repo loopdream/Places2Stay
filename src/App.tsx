@@ -13,18 +13,22 @@ import { StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 
 import { Home } from 'screen/Home';
 
-import colors from 'globals/colors';
+import { colors } from 'globals';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <StatusBar />
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        translucent={true} // Android only :(
+        backgroundColor={colors.sand}
+      />
+
       <Home />
     </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
-  safeAreaView: {
+  container: {
     backgroundColor: colors.sand,
     flex: 1,
   },

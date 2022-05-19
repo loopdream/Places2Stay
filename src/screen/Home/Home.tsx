@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView, SectionList, StatusBar } from 'react-native';
+import { StyleSheet, SafeAreaView, SectionList } from 'react-native';
 
 import { Search } from 'screen/Search';
 import { SectionHeader, PlaceCta } from './component';
@@ -32,7 +32,9 @@ const Home: FC = () => {
 
 const styles = StyleSheet.create({
   list: {
-    paddingTop: 150,
+    paddingTop: 120,
+    paddingBottom: 50,
+    paddingHorizontal: 50,
   },
   header: {
     fontSize: 32,
@@ -43,7 +45,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginHorizontal: 16,
   },
 });
 
