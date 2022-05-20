@@ -42,28 +42,23 @@ const Home: FC = () => {
     item,
   }: {
     section: SectionProps;
-    item: any; //todo: type
-  }) => {
-    console.log('renderItem', { section }, { item });
-    if (section.orientation === 'horizontal') {
-      return (
-        <FlatList
-          horizontal
-          data={item}
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={keyExtractor}
-          renderItem={({ item: city, index }: { item: any; index: number }) => {
-            const itemStyles = getHorizontalItemStyles(section.data[0], index);
-            return <PlaceCta key={city.key} {...city} style={itemStyles} />;
-          }}
-          contentContainerStyle={styles.horizontalList}
-        />
-      );
-    }
-    return (
+    item: any;
+  }) =>
+    section.orientation === 'horizontal' ? (
+      <FlatList
+        horizontal
+        data={item}
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={keyExtractor}
+        renderItem={({ item: city, index }: { item: any; index: number }) => {
+          const itemStyles = getHorizontalItemStyles(section.data[0], index);
+          return <PlaceCta key={city.key} {...city} style={itemStyles} />;
+        }}
+        contentContainerStyle={styles.horizontalList}
+      />
+    ) : (
       <PlaceCta style={styles.horizontalMargin} key={item.key} {...item} />
     );
-  };
 
   const renderSectionHeader = ({ section }: { section: any }) => (
     <SectionHeader
