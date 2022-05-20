@@ -20,7 +20,7 @@ const Home: FC = () => {
     index: number,
   ) => {
     const isFirstItem = !index;
-    // @ts-ignore
+    // @ts-ignore todo
     const isLastItem = index === data.length - 1;
     if (isFirstItem) {
       return {
