@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { ViewStyle } from 'react-native';
 import { View as SectionHeaderView, StyleSheet } from 'react-native';
 
 import {
@@ -12,10 +13,15 @@ export type SectionHeaderProps = {
   heading: string;
   description?: string;
   variant?: string;
+  style?: ViewStyle;
 };
 
-const SectionHeader: FC<SectionHeaderProps> = ({ heading, description }) => (
-  <SectionHeaderView style={styles.container}>
+const SectionHeader: FC<SectionHeaderProps> = ({
+  heading,
+  description,
+  style,
+}) => (
+  <SectionHeaderView style={[styles.container, style]}>
     <HeaderText styles={StyleSheet.flatten([styles.font, styles.header])}>
       {heading}
     </HeaderText>
@@ -29,9 +35,7 @@ const SectionHeader: FC<SectionHeaderProps> = ({ heading, description }) => (
 );
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: 16,
-  },
+  container: {},
   font: {
     fontStyle: 'normal',
     fontWeight: '400',
@@ -46,6 +50,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     // todo fontFamily: 'Encode Sans',
     marginTop: 8,
+    marginBottom: 16,
   },
 });
 

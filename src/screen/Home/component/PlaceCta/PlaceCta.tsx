@@ -6,6 +6,7 @@ import {
   Image,
   StyleSheet,
   ImageProps,
+  ViewStyle,
 } from 'react-native';
 
 import {
@@ -16,44 +17,48 @@ import {
 
 import { colors } from 'globals';
 
-export type PlaceCtaProps = {
+export interface PlaceCtaProps {
   place: string;
   location?: string;
   image: ImageProps['source'];
   imageLabel?: string;
-};
+  style?: ViewStyle[];
+}
 
 const PlaceCta: FC<PlaceCtaProps> = ({
   imageLabel,
   image,
   place,
   location,
-}) => (
-  <View style={styles.container}>
-    <ImageWrapper style={styles.imageWrapper}>
-      <Image style={styles.image} source={image} />
-      {imageLabel && (
-        <ImageLabel style={styles.imageLabel}>
-          <ImageLabelText styles={styles.imageLabelText}>
-            {imageLabel}
-          </ImageLabelText>
-        </ImageLabel>
+  style,
+}) => {
+  return (
+    <View style={[styles.container, style]}>
+      <ImageWrapper style={styles.imageWrapper}>
+        <Image style={styles.image} source={image} />
+        {imageLabel && (
+          <ImageLabel style={styles.imageLabel}>
+            <ImageLabelText styles={styles.imageLabelText}>
+              {imageLabel}
+            </ImageLabelText>
+          </ImageLabel>
+        )}
+      </ImageWrapper>
+      <PlaceText styles={styles.place}>{place}</PlaceText>
+      {location && (
+        <LocationText styles={styles.location}>{location}</LocationText>
       )}
-    </ImageWrapper>
-    <PlaceText styles={styles.place}>{place}</PlaceText>
-    {location && (
-      <LocationText styles={styles.location}>{location}</LocationText>
-    )}
-  </View>
-);
-
+    </View>
+  );
+};
 const styles = StyleSheet.create({
   container: {
     marginBottom: 16,
   },
   imageWrapper: {
+    width: '100%',
+    height: 160,
     flex: 1,
-    height: 150,
     position: 'relative',
     borderRadius: 8,
     overflow: 'hidden',
