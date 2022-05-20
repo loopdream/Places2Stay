@@ -28,10 +28,13 @@ const Home: FC = () => {
         data={item}
         showsHorizontalScrollIndicator={false}
         keyExtractor={keyExtractor}
-        renderItem={({ item: city, index }: { item: any; index: number }) => {
-          const itemStyles = getHorizontalItemStyles(section.data[0], index);
-          return <PlaceCta key={city.key} {...city} style={itemStyles} />;
-        }}
+        renderItem={({ item: city, index }: { item: any; index: number }) => (
+          <PlaceCta
+            {...city}
+            key={city.key}
+            style={getHorizontalItemStyles(section.data[0], index)}
+          />
+        )}
         contentContainerStyle={styles.horizontalList}
       />
     ) : (
