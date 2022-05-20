@@ -41,7 +41,7 @@ const Home: FC = () => {
       <PlaceCta style={styles.horizontalMargin} key={item.key} {...item} />
     );
 
-  const renderSectionHeader = ({ section }: { section: any }) => (
+  const renderSectionHeader = ({ section }: { section: SectionProps }) => (
     <SectionHeader
       heading={section.heading}
       description={section.description}
