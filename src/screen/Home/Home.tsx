@@ -1,9 +1,11 @@
 import React, { FC, useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView, SectionList, FlatList } from 'react-native';
+import { SafeAreaView, SectionList, FlatList } from 'react-native';
 
 import { Search } from 'screen/Search';
+import homeMockData, { SectionProps } from './homeMockData';
+import { getHorizontalItemStyles, keyExtractor } from './Home.utils';
+import styles from './Home.styles';
 import { SectionHeader, PlaceCta } from './component';
-import homeMockData, { SectionProps, DataProps } from './homeMockData';
 
 const Home: FC = () => {
   const [sections, setSections] = useState([] as any);
@@ -12,30 +14,6 @@ const Home: FC = () => {
     const { placeCtas, cityCtas } = homeMockData.sections;
     setSections([placeCtas, cityCtas]);
   }, []);
-
-  const keyExtractor = (item: DataProps, index: number) => `${item}-${index}`;
-
-  const getHorizontalItemStyles = (
-    data: DataProps | DataProps[],
-    index: number,
-  ) => {
-    const isFirstItem = !index;
-    // @ts-ignore todo
-    const isLastItem = index === data.length - 1;
-    if (isFirstItem) {
-      return {
-        ...styles.horizontalListItem,
-        ...styles.horizontalListItemFirst,
-      };
-    }
-    if (isLastItem) {
-      return {
-        ...styles.horizontalListItem,
-        ...styles.horizontalListItemLast,
-      };
-    }
-    return styles.horizontalListItem;
-  };
 
   const renderItem = ({
     section,
@@ -82,40 +60,5 @@ const Home: FC = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  list: {
-    marginTop: 100,
-  },
-  horizontalList: {
-    margin: 0,
-    marginBottom: 130,
-  },
-  horizontalListItem: {
-    width: 120,
-    margin: 0,
-    marginLeft: 25,
-  },
-  horizontalListItemFirst: {
-    marginLeft: 50,
-  },
-  horizontalListItemLast: {
-    margin: 0,
-    marginRight: 50,
-  },
-  horizontalMargin: {
-    marginHorizontal: 50,
-  },
-  sectionHeader: {
-    // fontSize: 32,
-    marginTop: 20,
-  },
-  title: {
-    fontSize: 24,
-  },
-});
 
 export default Home;
