@@ -3,7 +3,7 @@ import { View as SearchView, TextInput, StyleSheet } from 'react-native';
 
 import { COLORS } from 'globals';
 
-export type SearchProps = {
+type SearchProps = {
   placeholder?: string;
 };
 
@@ -40,4 +40,5 @@ const STYLES = StyleSheet.create({
   },
 });
 
+export type { SearchProps };
 export default Search;

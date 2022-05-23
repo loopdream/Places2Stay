@@ -10,7 +10,7 @@ import {
 import { COLORS } from 'globals';
 import { Text as TitleText, Text as ItemText } from 'components/base/Text';
 
-export type StayDetailProps = {
+type StayDetailProps = {
   items: {
     itemLabel: string;
     itemDetail: string;
@@ -67,4 +67,5 @@ const STYLES = StyleSheet.create({
   },
 });
 
+export type { StayDetailProps };
 export default StayDetail;

@@ -7,14 +7,15 @@ import {
 
 import { TYPOGRAPHY } from 'globals';
 
-export type Props = {
+type TextProps = {
   style?: RNTextStyleProps;
   children: ReactNode;
   variant?: string;
 };
 
-const Text: FC<Props & RNTextProps> = ({ children, style }) => (
+const Text: FC<TextProps & RNTextProps> = ({ children, style }) => (
   <RNText style={[TYPOGRAPHY.base, style]}>{children}</RNText>
 );
 
+export type { TextProps };
 export default Text;
