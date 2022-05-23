@@ -1,23 +1,23 @@
 import React, { FC } from 'react';
 import { View as SearchView, TextInput, StyleSheet } from 'react-native';
 
+import { COLORS } from 'globals';
+
 export type SearchProps = {
   placeholder?: string;
 };
 
-import { colors } from 'globals';
-
 const Search: FC<SearchProps> = ({ placeholder = 'Try Boston' }) => (
-  <SearchView style={styles.container}>
+  <SearchView style={STYLES.container}>
     <TextInput
       keyboardType="default"
       placeholder={placeholder}
-      style={styles.textInput}
+      style={STYLES.textInput}
     />
   </SearchView>
 );
 
-const styles = StyleSheet.create({
+const STYLES = StyleSheet.create({
   container: {
     padding: 50,
     paddingVertical: 30,
@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   textInput: {
-    backgroundColor: colors.white,
+    backgroundColor: COLORS.white,
     borderRadius: 100,
     padding: 20,
-    color: colors.grey,
+    color: COLORS.grey,
     fontStyle: 'normal',
     fontSize: 16,
     shadowColor: '#171717',

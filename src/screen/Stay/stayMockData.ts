@@ -21,7 +21,7 @@ const STAY_MOCK_DATA: stayDataProps = {
   },
   details: [
     {
-      title: 'Access codes',
+      title: 'Access Codes',
       items: [
         {
           itemLabel: 'building',

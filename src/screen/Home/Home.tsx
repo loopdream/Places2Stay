@@ -4,7 +4,7 @@ import { SafeAreaView, SectionList, ScrollView } from 'react-native';
 import { Search } from 'screen/Search';
 import HOME_MOCK_DATA, { SectionProps, DataProps } from './homeMockData';
 import { keyExtractor } from './Home.utils';
-import styles, {
+import STYLES, {
   HORIZONTAL_LIST_ITEM_WIDTH,
   HORIZONTAL_LIST_ITEM_SPACING,
 } from './Home.styles';
@@ -33,29 +33,29 @@ const Home: FC = () => {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.horizontalList}
+        contentContainerStyle={STYLES.horizontalList}
         decelerationRate={0}
         contentOffset={{ x: -50, y: 0 }}
         snapToInterval={HORIZONTAL_SNAP_TO_INTERVAL}
-        contentInset={styles.contentInset}>
+        contentInset={STYLES.contentInset}>
         {item.map((props: DataProps) => (
-          <PlaceCta {...props} style={styles.horizontalListItem} />
+          <PlaceCta {...props} style={STYLES.horizontalListItem} />
         ))}
       </ScrollView>
     ) : (
-      <PlaceCta style={styles.horizontalMargin} key={item.key} {...item} />
+      <PlaceCta style={STYLES.horizontalMargin} key={item.key} {...item} />
     );
 
   const renderSectionHeader = ({ section }: { section: SectionProps }) => (
     <SectionHeader
       heading={section.heading}
       description={section.description}
-      style={{ ...styles.sectionHeader, ...styles.horizontalMargin }}
+      style={{ ...STYLES.sectionHeader, ...STYLES.horizontalMargin }}
     />
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={STYLES.container}>
       <Search />
       <SectionList
         sections={sections}
@@ -63,7 +63,7 @@ const Home: FC = () => {
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
         stickySectionHeadersEnabled={false}
-        contentContainerStyle={styles.list}
+        contentContainerStyle={STYLES.list}
       />
     </SafeAreaView>
   );

@@ -1,27 +1,16 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
 import { StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 
+import { COLORS } from 'globals';
 // import { Home } from 'screen/Home';
 import { Stay } from 'screen/Stay';
 
-import { colors } from 'globals';
-
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={STYLES.container}>
       <StatusBar
         translucent={true} // Android only :(
-        backgroundColor={colors.sand}
+        backgroundColor={COLORS.sand}
       />
 
       {/* <Home /> */}
@@ -29,9 +18,9 @@ const App = () => {
     </SafeAreaView>
   );
 };
-const styles = StyleSheet.create({
+const STYLES = StyleSheet.create({
   container: {
-    backgroundColor: colors.sand,
+    backgroundColor: COLORS.sand,
     flex: 1,
   },
 });

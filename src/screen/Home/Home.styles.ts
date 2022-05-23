@@ -4,7 +4,7 @@ const HORIZONTAL_LIST_ITEM_WIDTH = 120;
 const HORIZONTAL_LIST_ITEM_SPACING = 25;
 const HORIZONTAL_LIST_INSET_SPACING = 50;
 
-const styles = StyleSheet.create({
+const STYLES = StyleSheet.create({
   container: {
     flex: 1,
   },
@@ -53,4 +53,4 @@ export {
   HORIZONTAL_LIST_ITEM_SPACING,
   HORIZONTAL_LIST_INSET_SPACING,
 };
-export default styles;
+export default STYLES;

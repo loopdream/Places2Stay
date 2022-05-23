@@ -1,13 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
-import { ScrollView, Image, SafeAreaView, StyleSheet } from 'react-native';
+import { ScrollView, Image, SafeAreaView } from 'react-native';
 
 import {
-  Text as Title,
-  Text as Location,
-  Text as Dates,
+  Text as TitleText,
+  Text as LocationText,
+  Text as DatesText,
 } from 'components/base/Text';
 import StayDetail from './component/StayDetail/StayDetail';
 import STAY_MOCK_DATA, { stayDataProps } from './stayMockData';
+import STYLES from './Stay.styles';
 
 const Stay: FC = () => {
   const [data, setData] = useState({} as stayDataProps);
@@ -17,42 +18,24 @@ const Stay: FC = () => {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={STYLES.container}>
       <ScrollView>
-        <Image style={styles.image} source={data.image} />
-        <Title
-        //styles={styles.place}>
-        >
+        <Image style={STYLES.image} source={data.image} />
+        <TitleText style={[STYLES.margins, STYLES.titleText]}>
           {data.title}
-        </Title>
-        <Location
-        //styles={styles.place}
-        >
+        </TitleText>
+        <LocationText style={[STYLES.margins, STYLES.subTitleText]}>
           {data.location}
-        </Location>
-        <Dates
-        //styles={styles.place}
-        >
+        </LocationText>
+        <DatesText style={[STYLES.margins, STYLES.subTitleText]}>
           {data.dates}
-        </Dates>
-
-        {data.details?.map((detail, i) => (
-          <StayDetail key={i} {...detail} />
+        </DatesText>
+        {data.details?.map(detail => (
+          <StayDetail key={detail.title} {...detail} style={STYLES.margins} />
         ))}
       </ScrollView>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    height: 220,
-    width: '100%',
-    borderBottomRightRadius: 20,
-  },
-});
 
 export default Stay;

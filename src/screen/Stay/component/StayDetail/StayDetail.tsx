@@ -7,57 +7,64 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { Text } from 'components/base/Text';
-import { colors } from 'globals';
+import { COLORS } from 'globals';
+import { Text as TitleText, Text as ItemText } from 'components/base/Text';
 
 export type StayDetailProps = {
-  title: string;
   items: {
     itemLabel: string;
     itemDetail: string;
   }[];
   style?: ViewStyle | ViewStyle[];
+  title: string;
 };
 
 const StayDetail: FC<StayDetailProps> = ({ title, items, style }) => (
-  <StayDetailView style={[styles.container, style]}>
-    <TitleWrapper style={styles.titleWrapper}>
-      <Text style={styles.titleText}>{title}</Text>
+  <StayDetailView style={[STYLES.container, style]}>
+    <TitleWrapper style={STYLES.titleWrapper}>
+      <TitleText style={STYLES.titleText}>{title}</TitleText>
     </TitleWrapper>
     {items.map((item, i) => (
-      <ItemView key={i} style={styles.item}>
-        <Text style={styles.itemText}>{item.itemLabel}</Text>
-        <Text style={styles.itemText}>{item.itemDetail}</Text>
+      <ItemView key={i} style={STYLES.itemView}>
+        <ItemText style={STYLES.itemText}>{item.itemLabel}</ItemText>
+        <ItemText style={STYLES.itemText}>{item.itemDetail}</ItemText>
       </ItemView>
     ))}
   </StayDetailView>
 );
 
-const styles = StyleSheet.create({
+const STYLES = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 30,
-    marginTop: 30,
-    backgroundColor: colors.white,
+    backgroundColor: COLORS.white,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: colors.lightGrey,
+    borderColor: COLORS.lightGrey,
     borderRadius: 8,
-    padding: 30,
+    paddingHorizontal: 30,
+    paddingTop: 45,
+    paddingBottom: 15,
+    overflow: 'hidden',
   },
-  image: {},
   titleWrapper: {
-    backgroundColor: colors.blue,
+    backgroundColor: COLORS.blue,
     overflow: 'hidden',
     position: 'absolute',
     padding: 8,
     borderBottomRightRadius: 8,
   },
   titleText: {
-    color: colors.white,
+    color: COLORS.white,
+    fontSize: 12,
   },
-  item: { flexDirection: 'row', justifyContent: 'space-between' },
-  itemText: {},
+  itemText: {
+    fontSize: 12,
+  },
+  itemView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+  },
 });
 
 export default StayDetail;

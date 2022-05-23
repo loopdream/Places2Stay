@@ -15,7 +15,7 @@ import {
   Text as ImageLabelText,
 } from 'components/base/Text';
 
-import { colors } from 'globals';
+import { COLORS } from 'globals';
 
 export interface PlaceCtaProps {
   place: string;
@@ -32,25 +32,25 @@ const PlaceCta: FC<PlaceCtaProps> = ({
   location,
   style,
 }) => (
-  <View style={[styles.container, style]}>
-    <ImageWrapper style={styles.imageWrapper}>
-      <Image style={styles.image} source={image} />
+  <View style={[STYLES.container, style]}>
+    <ImageWrapper style={STYLES.imageWrapper}>
+      <Image style={STYLES.image} source={image} />
       {imageLabel && (
-        <ImageLabel style={styles.imageLabel}>
-          <ImageLabelText styles={styles.imageLabelText}>
+        <ImageLabel style={STYLES.imageLabel}>
+          <ImageLabelText style={STYLES.imageLabelText}>
             {imageLabel}
           </ImageLabelText>
         </ImageLabel>
       )}
     </ImageWrapper>
-    <PlaceText styles={styles.place}>{place}</PlaceText>
+    <PlaceText style={STYLES.place}>{place}</PlaceText>
     {location && (
-      <LocationText styles={styles.location}>{location}</LocationText>
+      <LocationText style={STYLES.location}>{location}</LocationText>
     )}
   </View>
 );
 
-const styles = StyleSheet.create({
+const STYLES = StyleSheet.create({
   container: {
     marginBottom: 16,
   },
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   imageLabel: {
-    backgroundColor: colors.orange,
+    backgroundColor: COLORS.orange,
     borderBottomLeftRadius: 8,
     overflow: 'hidden',
     position: 'absolute',
@@ -79,18 +79,18 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   imageLabelText: {
-    backgroundColor: colors.orange,
-    color: colors.black,
+    backgroundColor: COLORS.orange,
+    color: COLORS.black,
     fontSize: 12,
     fontWeight: '400',
   },
   place: {
-    color: colors.black,
+    color: COLORS.black,
     marginTop: 16,
   },
   location: {
     marginTop: 6,
-    color: colors.grey,
+    color: COLORS.grey,
     fontSize: 12,
     fontWeight: '400',
   },

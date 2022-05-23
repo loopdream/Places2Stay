@@ -5,14 +5,16 @@ import {
   TextProps as RNTextProps,
 } from 'react-native';
 
+import { TYPOGRAPHY } from 'globals';
+
 export type Props = {
-  styles?: RNTextStyleProps;
+  style?: RNTextStyleProps;
   children: ReactNode;
   variant?: string;
 };
 
-const Text: FC<Props & RNTextProps> = ({ children, styles }) => (
-  <RNText style={styles}>{children}</RNText>
+const Text: FC<Props & RNTextProps> = ({ children, style }) => (
+  <RNText style={[TYPOGRAPHY.base, style]}>{children}</RNText>
 );
 
 export default Text;

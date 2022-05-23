@@ -7,7 +7,7 @@ import {
   Text as DescriptionText,
 } from 'components/base/Text';
 
-import { colors } from 'globals';
+import { COLORS, TYPOGRAPHY } from 'globals';
 
 export type SectionHeaderProps = {
   heading: string;
@@ -21,37 +21,34 @@ const SectionHeader: FC<SectionHeaderProps> = ({
   description,
   style,
 }) => (
-  <SectionHeaderView style={[styles.container, style]}>
-    <HeaderText styles={StyleSheet.flatten([styles.font, styles.header])}>
+  <SectionHeaderView style={[STYLES.container, style]}>
+    <HeaderText style={[TYPOGRAPHY.title, STYLES.headerText]}>
       {heading}
     </HeaderText>
     {description && (
       <DescriptionText
-        styles={StyleSheet.flatten([styles.font, styles.description])}>
+        style={StyleSheet.flatten([
+          STYLES.descriptionText,
+          STYLES.description,
+        ])}>
         {description}
       </DescriptionText>
     )}
   </SectionHeaderView>
 );
 
-const styles = StyleSheet.create({
+const STYLES = StyleSheet.create({
   container: {},
-  font: {
-    fontStyle: 'normal',
-    fontWeight: '400',
-    color: colors.black,
-  },
-  header: {
-    fontSize: 24,
+  headerText: {
     marginBottom: 20,
-    // todo fontFamily: 'Bitter',
+    color: COLORS.black,
   },
   description: {
     fontSize: 12,
-    // todo fontFamily: 'Encode Sans',
     marginTop: 8,
     marginBottom: 16,
   },
+  descriptionText: {},
 });
 
 export default SectionHeader;
