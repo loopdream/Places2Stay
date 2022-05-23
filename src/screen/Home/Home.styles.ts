@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const HORIZONTAL_LIST_ITEM_WIDTH = 120;
 const HORIZONTAL_LIST_ITEM_SPACING = 25;
@@ -14,13 +14,21 @@ const styles = StyleSheet.create({
   horizontalList: {
     margin: 0,
     marginBottom: 130,
+    paddingHorizontal:
+      // contentInset alternative for Android - Horizontal spacing before and after the ScrollView
+      Platform.OS === 'android' ? HORIZONTAL_LIST_INSET_SPACING : 0, //
   },
   horizontalListItem: {
     width: HORIZONTAL_LIST_ITEM_WIDTH,
     margin: 0,
-    marginLeft: HORIZONTAL_LIST_ITEM_SPACING,
+    marginRight: HORIZONTAL_LIST_ITEM_SPACING,
   },
-  contentInset: {},
+  contentInset: {
+    bottom: 0,
+    left: HORIZONTAL_LIST_INSET_SPACING,
+    right: HORIZONTAL_LIST_ITEM_SPACING,
+    top: 0,
+  },
   horizontalListItemFirst: {
     marginLeft: HORIZONTAL_LIST_INSET_SPACING,
   },

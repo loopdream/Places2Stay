@@ -11,7 +11,7 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 
-import { Home } from 'screen/Home';
+// import { Home } from 'screen/Home';
 import { Stay } from 'screen/Stay';
 
 import { colors } from 'globals';
@@ -24,8 +24,8 @@ const App = () => {
         backgroundColor={colors.sand}
       />
 
-      <Home />
-      {/* <Stay /> */}
+      {/* <Home /> */}
+      <Stay />
     </SafeAreaView>
   );
 };

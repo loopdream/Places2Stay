@@ -4,6 +4,7 @@ import { DataProps } from './homeMockData';
 const keyExtractor = (item: DataProps, index: number) => `${item}-${index}`;
 
 const getHorizontalItemStyles = (
+  // For use with FlatList
   data: DataProps | DataProps[],
   index: number,
 ) => {

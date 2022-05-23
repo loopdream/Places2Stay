@@ -1,11 +1,18 @@
 import React, { FC, useState, useEffect } from 'react';
-import { SafeAreaView, SectionList, FlatList } from 'react-native';
+import { SafeAreaView, SectionList, ScrollView } from 'react-native';
 
 import { Search } from 'screen/Search';
-import HOME_MOCK_DATA, { SectionProps } from './homeMockData';
-import { getHorizontalItemStyles, keyExtractor } from './Home.utils';
-import styles from './Home.styles';
+import HOME_MOCK_DATA, { SectionProps, DataProps } from './homeMockData';
+import { keyExtractor } from './Home.utils';
+import styles, {
+  HORIZONTAL_LIST_ITEM_WIDTH,
+  HORIZONTAL_LIST_ITEM_SPACING,
+} from './Home.styles';
+
 import { SectionHeader, PlaceCta } from './component';
+
+const HORIZONTAL_SNAP_TO_INTERVAL =
+  HORIZONTAL_LIST_ITEM_WIDTH + HORIZONTAL_LIST_ITEM_SPACING;
 
 const Home: FC = () => {
   const [sections, setSections] = useState([] as any);
@@ -23,20 +30,18 @@ const Home: FC = () => {
     item: any;
   }) =>
     section.orientation === 'horizontal' ? (
-      <FlatList
+      <ScrollView
         horizontal
-        data={item}
         showsHorizontalScrollIndicator={false}
-        keyExtractor={keyExtractor}
         contentContainerStyle={styles.horizontalList}
-        renderItem={({ item: city, index }: { item: any; index: number }) => (
-          <PlaceCta
-            {...city}
-            key={city.key}
-            style={getHorizontalItemStyles(section.data[0], index)}
-          />
-        )}
-      />
+        decelerationRate={0}
+        contentOffset={{ x: -50, y: 0 }}
+        snapToInterval={HORIZONTAL_SNAP_TO_INTERVAL}
+        contentInset={styles.contentInset}>
+        {item.map((props: DataProps) => (
+          <PlaceCta {...props} style={styles.horizontalListItem} />
+        ))}
+      </ScrollView>
     ) : (
       <PlaceCta style={styles.horizontalMargin} key={item.key} {...item} />
     );
