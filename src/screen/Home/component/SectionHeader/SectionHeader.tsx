@@ -26,11 +26,7 @@ const SectionHeader: FC<SectionHeaderProps> = ({
       {heading}
     </HeaderText>
     {description && (
-      <DescriptionText
-        style={StyleSheet.flatten([
-          STYLES.descriptionText,
-          STYLES.description,
-        ])}>
+      <DescriptionText style={[STYLES.descriptionText, STYLES.description]}>
         {description}
       </DescriptionText>
     )}
