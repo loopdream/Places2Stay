@@ -1,2 +1,2 @@
 export * from './Stay';
-export default './Stay';
+export { default as Stay } from './Stay';

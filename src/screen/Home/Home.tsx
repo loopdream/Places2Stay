@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { SafeAreaView, SectionList, FlatList } from 'react-native';
 
 import { Search } from 'screen/Search';
-import homeMockData, { SectionProps } from './homeMockData';
+import HOME_MOCK_DATA, { SectionProps } from './homeMockData';
 import { getHorizontalItemStyles, keyExtractor } from './Home.utils';
 import styles from './Home.styles';
 import { SectionHeader, PlaceCta } from './component';
@@ -11,7 +11,7 @@ const Home: FC = () => {
   const [sections, setSections] = useState([] as any);
 
   useEffect(() => {
-    const { placeCtas, cityCtas } = homeMockData.sections;
+    const { placeCtas, cityCtas } = HOME_MOCK_DATA.sections;
     setSections([placeCtas, cityCtas]);
   }, []);
 
@@ -28,6 +28,7 @@ const Home: FC = () => {
         data={item}
         showsHorizontalScrollIndicator={false}
         keyExtractor={keyExtractor}
+        contentContainerStyle={styles.horizontalList}
         renderItem={({ item: city, index }: { item: any; index: number }) => (
           <PlaceCta
             {...city}
@@ -35,7 +36,6 @@ const Home: FC = () => {
             style={getHorizontalItemStyles(section.data[0], index)}
           />
         )}
-        contentContainerStyle={styles.horizontalList}
       />
     ) : (
       <PlaceCta style={styles.horizontalMargin} key={item.key} {...item} />

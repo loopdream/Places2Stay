@@ -1897,7 +1897,7 @@ interface HomeMockDataProps {
 //   },
 // };
 
-const homeMockData: HomeMockDataProps = {
+const HOME_MOCK_DATA: HomeMockDataProps = {
   sections: {
     placeCtas: {
       heading: 'Find your getaway',
@@ -1990,4 +1990,4 @@ const homeMockData: HomeMockDataProps = {
 };
 
 export type { HomeMockDataProps, SectionProps, DataProps };
-export default homeMockData;
+export default HOME_MOCK_DATA;

@@ -22,7 +22,7 @@ export interface PlaceCtaProps {
   location?: string;
   image: ImageProps['source'];
   imageLabel?: string;
-  style?: ViewStyle[];
+  style?: ViewStyle | ViewStyle[];
 }
 
 const PlaceCta: FC<PlaceCtaProps> = ({
@@ -31,26 +31,25 @@ const PlaceCta: FC<PlaceCtaProps> = ({
   place,
   location,
   style,
-}) => {
-  return (
-    <View style={[styles.container, style]}>
-      <ImageWrapper style={styles.imageWrapper}>
-        <Image style={styles.image} source={image} />
-        {imageLabel && (
-          <ImageLabel style={styles.imageLabel}>
-            <ImageLabelText styles={styles.imageLabelText}>
-              {imageLabel}
-            </ImageLabelText>
-          </ImageLabel>
-        )}
-      </ImageWrapper>
-      <PlaceText styles={styles.place}>{place}</PlaceText>
-      {location && (
-        <LocationText styles={styles.location}>{location}</LocationText>
+}) => (
+  <View style={[styles.container, style]}>
+    <ImageWrapper style={styles.imageWrapper}>
+      <Image style={styles.image} source={image} />
+      {imageLabel && (
+        <ImageLabel style={styles.imageLabel}>
+          <ImageLabelText styles={styles.imageLabelText}>
+            {imageLabel}
+          </ImageLabelText>
+        </ImageLabel>
       )}
-    </View>
-  );
-};
+    </ImageWrapper>
+    <PlaceText styles={styles.place}>{place}</PlaceText>
+    {location && (
+      <LocationText styles={styles.location}>{location}</LocationText>
+    )}
+  </View>
+);
+
 const styles = StyleSheet.create({
   container: {
     marginBottom: 16,
