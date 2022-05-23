@@ -1,2 +1,2 @@
 export * from './StayDetail';
-export default './StayDetail';
+export { default } from './StayDetail';

@@ -1,2 +1,2 @@
 export * from './PlaceCta';
-export { default as PlaceCta } from './PlaceCta';
+export { default } from './PlaceCta';

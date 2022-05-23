@@ -1,4 +1,4 @@
-import { PlaceCtaProps } from './component';
+import { PlaceCtaProps } from './component/PlaceCta';
 
 interface DataProps extends PlaceCtaProps {
   key?: number | string;

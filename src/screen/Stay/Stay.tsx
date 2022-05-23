@@ -6,7 +6,7 @@ import {
   Text as LocationText,
   Text as DatesText,
 } from 'components/base/Text';
-import StayDetail from './component/StayDetail/StayDetail';
+import StayDetail from './component/StayDetail';
 import STAY_MOCK_DATA, { stayDataProps } from './stayMockData';
 import STYLES from './Stay.styles';
 

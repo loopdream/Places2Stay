@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { SafeAreaView, SectionList, ScrollView } from 'react-native';
 
-import { Search } from 'screen/Search';
+import Search from 'screen/Search';
 import HOME_MOCK_DATA, { SectionProps, DataProps } from './homeMockData';
 import { keyExtractor } from './Home.utils';
 import STYLES, {
@@ -9,7 +9,8 @@ import STYLES, {
   HORIZONTAL_LIST_ITEM_SPACING,
 } from './Home.styles';
 
-import { SectionHeader, PlaceCta } from './component';
+import SectionHeader from './component/SectionHeader';
+import PlaceCta from './component/PlaceCta';
 
 const HORIZONTAL_SNAP_TO_INTERVAL =
   HORIZONTAL_LIST_ITEM_WIDTH + HORIZONTAL_LIST_ITEM_SPACING;

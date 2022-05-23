@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { ViewStyle } from 'react-native';
-import { View as SectionHeaderView, StyleSheet } from 'react-native';
+import { View as SectionHeaderView } from 'react-native';
 
+import { TYPOGRAPHY } from 'globals';
 import {
   Text as HeaderText,
   Text as DescriptionText,
 } from 'components/base/Text';
-
-import { COLORS, TYPOGRAPHY } from 'globals';
+import STYLES from './SectionHeader.styles';
 
 export type SectionHeaderProps = {
   heading: string;
@@ -32,19 +32,5 @@ const SectionHeader: FC<SectionHeaderProps> = ({
     )}
   </SectionHeaderView>
 );
-
-const STYLES = StyleSheet.create({
-  container: {},
-  headerText: {
-    marginBottom: 20,
-    color: COLORS.black,
-  },
-  description: {
-    fontSize: 12,
-    marginTop: 8,
-    marginBottom: 16,
-  },
-  descriptionText: {},
-});
 
 export default SectionHeader;

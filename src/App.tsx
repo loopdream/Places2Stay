@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 
 import { COLORS } from 'globals';
-// import { Home } from 'screen/Home';
-import { Stay } from 'screen/Stay';
+// import Home from 'screen/Home';
+import Stay from 'screen/Stay';
 
 const App = () => {
   return (
