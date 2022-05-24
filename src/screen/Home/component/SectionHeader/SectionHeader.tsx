@@ -9,7 +9,7 @@ import {
 } from 'components/base/Text';
 import STYLES from './SectionHeader.styles';
 
-export type SectionHeaderProps = {
+type SectionHeaderProps = {
   heading: string;
   description?: string;
   variant?: string;
@@ -33,4 +33,5 @@ const SectionHeader: FC<SectionHeaderProps> = ({
   </SectionHeaderView>
 );
 
+export type { SectionHeaderProps };
 export default SectionHeader;

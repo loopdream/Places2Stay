@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { SafeAreaView, SectionList, ScrollView } from 'react-native';
+import { SafeAreaView, SectionList, ScrollView, Button } from 'react-native';
 
 import Search from 'screen/Search';
 import HOME_MOCK_DATA, { SectionProps, DataProps } from './homeMockData';
@@ -60,14 +60,14 @@ const Home: FC = () => {
   return (
     <SafeAreaView style={STYLES.container}>
       <Search />
-      <SectionList
+      {/* <SectionList
         sections={sections}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
         stickySectionHeadersEnabled={false}
         contentContainerStyle={STYLES.list}
-      />
+      /> */}
     </SafeAreaView>
   );
 };

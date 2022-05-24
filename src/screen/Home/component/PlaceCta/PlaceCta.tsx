@@ -16,7 +16,7 @@ import {
 
 import STYLES from './PlaceCta.styles';
 
-export interface PlaceCtaProps {
+interface PlaceCtaProps {
   place: string;
   location?: string;
   image: ImageProps['source'];
@@ -49,4 +49,5 @@ const PlaceCta: FC<PlaceCtaProps> = ({
   </View>
 );
 
+export type { PlaceCtaProps };
 export default PlaceCta;

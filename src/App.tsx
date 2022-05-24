@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaView, StatusBar } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
 
 import {
   StyleSheet,
@@ -9,21 +9,24 @@ import {
 } from 'react-native';
 
 import { COLORS } from 'globals';
-// import Home from 'screen/Home';
+import Home from 'screen/Home';
 // import Stay from 'screen/Stay';
+// import { HomeTabs } from 'navigator';
 
 const App = () => {
   return (
-    <NavigationContainer></NavigationContainer>
-    // <SafeAreaView style={STYLES.container}>
-    //   <StatusBar
-    //     translucent={true} // Android only :(
-    //     backgroundColor={COLORS.sand}
-    //   />
+    // <NavigationContainer>
+    //   <HomeTabs />
+    // </NavigationContainer>
+    <SafeAreaView style={STYLES.container}>
+      <StatusBar
+        translucent={true} // Android only :(
+        backgroundColor={COLORS.sand}
+      />
 
-    //   <Home />
-    //   <Stay />
-    // </SafeAreaView>
+      <Home />
+      {/* <Stay /> */}
+    </SafeAreaView>
   );
 };
 const STYLES = StyleSheet.create({

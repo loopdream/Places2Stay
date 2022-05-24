@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from 'globals';
+import { COLORS, TYPOGRAPHY } from 'globals';
 
 const STYLES = StyleSheet.create({
   container: {
@@ -10,18 +10,21 @@ const STYLES = StyleSheet.create({
     zIndex: 1,
   },
   textInput: {
+    ...TYPOGRAPHY.base,
     backgroundColor: COLORS.white,
     borderRadius: 100,
-    padding: 20,
     color: COLORS.grey,
-    fontStyle: 'normal',
     fontSize: 16,
+    fontStyle: 'normal',
+    padding: 20,
     shadowColor: '#171717',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
     textAlign: 'center',
   },
+  resultList: { marginTop: 30 },
+  resultListItem: { paddingVertical: 12 },
 });
 
 export default STYLES;
