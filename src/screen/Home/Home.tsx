@@ -3,7 +3,6 @@ import { SafeAreaView, SectionList, ScrollView } from 'react-native';
 
 import Search from 'screen/Search';
 import HOME_MOCK_DATA, { SectionProps, DataProps } from './homeMockData';
-import { keyExtractor } from './Home.utils';
 import STYLES, {
   HORIZONTAL_LIST_ITEM_WIDTH,
   HORIZONTAL_LIST_ITEM_SPACING,
@@ -22,6 +21,9 @@ const Home: FC = () => {
     const { placeCtas, cityCtas } = HOME_MOCK_DATA.sections;
     setSections([placeCtas, cityCtas]);
   }, []);
+
+  const keyExtractor = (item: DataProps, index: number) =>
+    `${item.imageLabel}-${index}`;
 
   const renderItem = ({
     section,
