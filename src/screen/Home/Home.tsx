@@ -56,23 +56,27 @@ const Home: FC = () => {
   }: {
     section: SectionProps;
     item: any;
-  }) =>
-    section.orientation === 'horizontal' ? (
-      <ScrollView
-        contentInset={STYLES.contentInset}
-        contentContainerStyle={STYLES.horizontalList}
-        contentOffset={{ x: -50, y: 0 }}
-        decelerationRate={0}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        snapToInterval={HORIZONTAL_SNAP_TO_INTERVAL}>
-        {item.map((props: DataProps) => (
-          <PlaceCta {...props} style={STYLES.horizontalListItem} />
-        ))}
-      </ScrollView>
-    ) : (
+  }) => {
+    if (section.orientation === 'horizontal') {
+      return (
+        <ScrollView
+          contentInset={STYLES.contentInset}
+          contentContainerStyle={STYLES.horizontalList}
+          contentOffset={{ x: -50, y: 0 }}
+          decelerationRate={0}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          snapToInterval={HORIZONTAL_SNAP_TO_INTERVAL}>
+          {item.map((props: DataProps) => (
+            <PlaceCta {...props} style={STYLES.horizontalListItem} />
+          ))}
+        </ScrollView>
+      );
+    }
+    return (
       <PlaceCta style={STYLES.horizontalMargin} key={item.key} {...item} />
     );
+  };
 
   const renderSectionHeader = ({ section }: { section: SectionProps }) => (
     <SectionHeader
@@ -82,17 +86,12 @@ const Home: FC = () => {
     />
   );
 
-  const showOnScrollSearch = () => {
+  const showHideOnScrollSearch = ({ show }: { show: boolean }) => {
+    const toValue = show ? 1 : 0;
+    const isVisible = show ? true : false;
     setAnimateStyle({ transform: [{ translateY: headerTranslateY }] });
-    Animated.timing(scrollY, { ...TIMING_ANIMATION_OPTIONS, toValue: 1 }).start(
-      () => setScrollSearchHeaderVisible(true),
-    );
-  };
-
-  const hideOnScrollSearch = () => {
-    setAnimateStyle({ transform: [{ translateY: headerTranslateY }] });
-    Animated.timing(scrollY, { ...TIMING_ANIMATION_OPTIONS, toValue: 0 }).start(
-      () => setScrollSearchHeaderVisible(false),
+    Animated.timing(scrollY, { ...TIMING_ANIMATION_OPTIONS, toValue }).start(
+      () => setScrollSearchHeaderVisible(isVisible),
     );
   };
 
@@ -110,34 +109,32 @@ const Home: FC = () => {
     />
   );
 
-  const { View: AnimatedView } = Animated;
-
-  const AnimatedListOnScroll = e => {
+  const AnimatedListOnScroll = (e: any) => {
     Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
       useNativeDriver: true,
     });
 
     if (e.nativeEvent.contentOffset.y > SEARCH_HEADER_HEIGHT * 2) {
       if (!scrollSearchHeaderVisible) {
-        showOnScrollSearch();
+        showHideOnScrollSearch({ show: true });
       }
     } else {
       if (scrollSearchHeaderVisible) {
-        hideOnScrollSearch();
+        showHideOnScrollSearch({ show: false });
       }
     }
   };
 
   return (
     <SafeAreaView style={STYLES.container}>
-      <AnimatedView
+      <Animated.View
         style={[
           STYLES.searchInputContainer,
           STYLES.onScrollSearchInputContainer,
           animateStyle,
         ]}>
         {renderSearchInput()}
-      </AnimatedView>
+      </Animated.View>
       <Animated.SectionList
         ListHeaderComponent={renderSearchHeader}
         sections={sections}
