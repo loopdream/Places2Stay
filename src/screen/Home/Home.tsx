@@ -1,10 +1,9 @@
 import React, { FC, useState, useEffect, useRef } from 'react';
 import {
   SafeAreaView,
-  // SectionList,
   ScrollView,
-  TextInput,
-  View,
+  TextInput as SearchInput,
+  View as SearchView,
   Animated,
 } from 'react-native';
 
@@ -85,10 +84,9 @@ const Home: FC = () => {
 
   const showOnScrollSearch = () => {
     setAnimateStyle({ transform: [{ translateY: headerTranslateY }] });
-    Animated.timing(scrollY, {
-      ...TIMING_ANIMATION_OPTIONS,
-      toValue: 1,
-    }).start(() => setScrollSearchHeaderVisible(true));
+    Animated.timing(scrollY, { ...TIMING_ANIMATION_OPTIONS, toValue: 1 }).start(
+      () => setScrollSearchHeaderVisible(true),
+    );
   };
 
   const hideOnScrollSearch = () => {
@@ -99,11 +97,13 @@ const Home: FC = () => {
   };
 
   const renderSearchHeader = () => (
-    <View style={[STYLES.searchInputContainer]}>{renderSearchInput()}</View>
+    <SearchView style={[STYLES.searchInputContainer]}>
+      {renderSearchInput()}
+    </SearchView>
   );
 
   const renderSearchInput = () => (
-    <TextInput
+    <SearchInput
       keyboardType="default"
       placeholder={LABELS.home.searchInputPlaceholder}
       style={STYLES.searchInput}
@@ -118,12 +118,10 @@ const Home: FC = () => {
     });
 
     if (e.nativeEvent.contentOffset.y > SEARCH_HEADER_HEIGHT * 2) {
-      // console.log('SHOW HEADER');
       if (!scrollSearchHeaderVisible) {
         showOnScrollSearch();
       }
     } else {
-      // console.log('HIDE HEADER');
       if (scrollSearchHeaderVisible) {
         hideOnScrollSearch();
       }
