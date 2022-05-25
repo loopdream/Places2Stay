@@ -4,6 +4,7 @@ import {
   View as SearchView,
   FlatList as SearchResultsList,
 } from 'react-native';
+
 import { LABELS } from 'globals';
 import { Text } from 'components/base/Text';
 import SEARCH_MOCK_DATA, { searchMockDataCityProps } from './searchMockData';
@@ -39,16 +40,19 @@ const Search: FC<SearchProps> = () => {
   return (
     <SearchView style={STYLES.container}>
       <TextInput
+        accessibilityHint={LABELS.search.inputAccessibilityHint}
+        accessibilityLabel={LABELS.search.inputAccessibilityLabel}
+        accessible={true}
         keyboardType="default"
-        placeholder={LABELS.search.inputPlaceholder}
         onChangeText={setSearchValue}
+        placeholder={LABELS.search.inputPlaceholder}
         style={STYLES.textInput}
       />
       <SearchResultsList
+        contentContainerStyle={STYLES.resultList}
         data={searchResults}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
-        contentContainerStyle={STYLES.resultList}
       />
     </SearchView>
   );

@@ -1,21 +1,47 @@
-import React, { FC, useState, useEffect } from 'react';
-import { SafeAreaView, SectionList, ScrollView, Button } from 'react-native';
+import React, { FC, useState, useEffect, useRef } from 'react';
+import {
+  SafeAreaView,
+  // SectionList,
+  ScrollView,
+  TextInput,
+  View,
+  Animated,
+} from 'react-native';
 
-import Search from 'screen/Search';
-import HOME_MOCK_DATA, { SectionProps, DataProps } from './homeMockData';
+import { LABELS } from 'globals';
+
 import STYLES, {
   HORIZONTAL_LIST_ITEM_WIDTH,
   HORIZONTAL_LIST_ITEM_SPACING,
+  SEARCH_HEADER_HEIGHT,
 } from './Home.styles';
-
 import SectionHeader from './component/SectionHeader';
 import PlaceCta from './component/PlaceCta';
+import HOME_MOCK_DATA, { SectionProps, DataProps } from './homeMockData';
 
 const HORIZONTAL_SNAP_TO_INTERVAL =
   HORIZONTAL_LIST_ITEM_WIDTH + HORIZONTAL_LIST_ITEM_SPACING;
 
+const SCROLL_EVENT_THROTTLE = 16;
+
+const TIMING_ANIMATION_OPTIONS = {
+  duration: 250,
+  useNativeDriver: true,
+};
+
 const Home: FC = () => {
   const [sections, setSections] = useState([] as any);
+  const [animateStyle, setAnimateStyle] = useState([] as any);
+  const [scrollSearchHeaderVisible, setScrollSearchHeaderVisible] =
+    useState(false);
+
+  const scrollY = useRef(new Animated.Value(0)).current;
+
+  const headerTranslateY = scrollY.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-SEARCH_HEADER_HEIGHT, 0],
+    extrapolate: 'clamp',
+  });
 
   useEffect(() => {
     const { placeCtas, cityCtas } = HOME_MOCK_DATA.sections;
@@ -25,7 +51,7 @@ const Home: FC = () => {
   const keyExtractor = (item: DataProps, index: number) =>
     `${item.imageLabel}-${index}`;
 
-  const renderItem = ({
+  const renderSectionListItem = ({
     section,
     item,
   }: {
@@ -34,13 +60,13 @@ const Home: FC = () => {
   }) =>
     section.orientation === 'horizontal' ? (
       <ScrollView
+        contentInset={STYLES.contentInset}
+        contentContainerStyle={STYLES.horizontalList}
+        contentOffset={{ x: -50, y: 0 }}
+        decelerationRate={0}
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={STYLES.horizontalList}
-        decelerationRate={0}
-        contentOffset={{ x: -50, y: 0 }}
-        snapToInterval={HORIZONTAL_SNAP_TO_INTERVAL}
-        contentInset={STYLES.contentInset}>
+        snapToInterval={HORIZONTAL_SNAP_TO_INTERVAL}>
         {item.map((props: DataProps) => (
           <PlaceCta {...props} style={STYLES.horizontalListItem} />
         ))}
@@ -57,17 +83,75 @@ const Home: FC = () => {
     />
   );
 
+  const showOnScrollSearch = () => {
+    setAnimateStyle({ transform: [{ translateY: headerTranslateY }] });
+    Animated.timing(scrollY, {
+      ...TIMING_ANIMATION_OPTIONS,
+      toValue: 1,
+    }).start(() => setScrollSearchHeaderVisible(true));
+  };
+
+  const hideOnScrollSearch = () => {
+    setAnimateStyle({ transform: [{ translateY: headerTranslateY }] });
+    Animated.timing(scrollY, { ...TIMING_ANIMATION_OPTIONS, toValue: 0 }).start(
+      () => setScrollSearchHeaderVisible(false),
+    );
+  };
+
+  const renderSearchHeader = () => (
+    <View style={[STYLES.searchInputContainer]}>{renderSearchInput()}</View>
+  );
+
+  const renderSearchInput = () => (
+    <TextInput
+      keyboardType="default"
+      placeholder={LABELS.home.searchInputPlaceholder}
+      style={STYLES.searchInput}
+    />
+  );
+
+  const { View: AnimatedView } = Animated;
+
+  const AnimatedListOnScroll = e => {
+    Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
+      useNativeDriver: true,
+    });
+
+    if (e.nativeEvent.contentOffset.y > SEARCH_HEADER_HEIGHT * 2) {
+      // console.log('SHOW HEADER');
+      if (!scrollSearchHeaderVisible) {
+        showOnScrollSearch();
+      }
+    } else {
+      // console.log('HIDE HEADER');
+      if (scrollSearchHeaderVisible) {
+        hideOnScrollSearch();
+      }
+    }
+  };
+
   return (
     <SafeAreaView style={STYLES.container}>
-      <Search />
-      {/* <SectionList
+      <AnimatedView
+        style={[
+          STYLES.searchInputContainer,
+          STYLES.onScrollSearchInputContainer,
+          animateStyle,
+        ]}>
+        {renderSearchInput()}
+      </AnimatedView>
+      <Animated.SectionList
+        ListHeaderComponent={renderSearchHeader}
         sections={sections}
         keyExtractor={keyExtractor}
-        renderItem={renderItem}
+        renderItem={renderSectionListItem}
         renderSectionHeader={renderSectionHeader}
         stickySectionHeadersEnabled={false}
         contentContainerStyle={STYLES.list}
-      /> */}
+        stickyHeaderIndices={[0]}
+        onScroll={AnimatedListOnScroll}
+        scrollEventThrottle={SCROLL_EVENT_THROTTLE}
+      />
     </SafeAreaView>
   );
 };

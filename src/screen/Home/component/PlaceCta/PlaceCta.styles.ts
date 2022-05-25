@@ -18,6 +18,7 @@ const STYLES = StyleSheet.create({
     height: '100%',
     position: 'relative',
     resizeMode: 'cover',
+    // display: 'none',
   },
   imageLabel: {
     backgroundColor: COLORS.orange,
