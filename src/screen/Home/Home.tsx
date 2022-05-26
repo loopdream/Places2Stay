@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import { LABELS } from 'globals';
+import TabBar from 'components/TabBar';
 
 import STYLES, {
   HORIZONTAL_LIST_ITEM_WIDTH,
@@ -103,6 +104,9 @@ const Home: FC = () => {
 
   const renderSearchInput = () => (
     <SearchInput
+      accessibilityHint={LABELS.search.inputAccessibilityHint}
+      accessibilityLabel={LABELS.search.inputAccessibilityLabel}
+      accessible={true}
       keyboardType="default"
       placeholder={LABELS.home.searchInputPlaceholder}
       style={STYLES.searchInput}
@@ -135,7 +139,25 @@ const Home: FC = () => {
         ]}>
         {renderSearchInput()}
       </Animated.View>
-      <Animated.SectionList
+
+      <TabBar
+        styles={{ margin: 50 }}
+        items={[
+          {
+            label: 'Calendar',
+            action: () => {
+              console.log('Place');
+            },
+          },
+          {
+            label: "I'm flexible",
+            action: () => {
+              console.log("I'm flexible");
+            },
+          },
+        ]}
+      />
+      {/* <Animated.SectionList
         ListHeaderComponent={renderSearchHeader}
         sections={sections}
         keyExtractor={keyExtractor}
@@ -146,7 +168,7 @@ const Home: FC = () => {
         stickyHeaderIndices={[0]}
         onScroll={AnimatedListOnScroll}
         scrollEventThrottle={SCROLL_EVENT_THROTTLE}
-      />
+      /> */}
     </SafeAreaView>
   );
 };
