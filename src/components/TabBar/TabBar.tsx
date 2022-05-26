@@ -1,11 +1,10 @@
-import React, { FC, useEffect, useState, createRef, useRef } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {
   View as TabBarView,
-  View as ActiveIndicator,
   Pressable as TabBarItemPressable,
   Text as TabBarItemText,
   TextStyle as RNTextStyleProps,
-  // Animated,
+  Animated,
 } from 'react-native';
 
 // import { LABELS } from 'globals';
@@ -22,25 +21,31 @@ interface TabBarProps {
   styles?: RNTextStyleProps;
 }
 
-const TabBar: FC<TabBarProps> = ({ styles, items, defaultActiveIndex = 0 }) => {
-  const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
-  const [tabBarItems, setTabBarItems] = useState([] as TabBarItemProps[]);
-  const [measures, setMeasures] = useState([]);
+type MeasuresProps = { [n: string]: number };
 
-  const containerRef = useRef<TabBarView>(null);
+const TabBar: FC<TabBarProps> = ({ styles, items, defaultActiveIndex = 0 }) => {
+  // const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
+  const [tabBarItems, setTabBarItems] = useState([] as TabBarItemProps[]);
+  const [measures, setMeasures] = useState([] as MeasuresProps[]);
+
+  const containerRef = React.useRef<TabBarView>(null);
 
   useEffect(() => {
-    if (tabBarItems.length === 0) {
+    const shouldSetTabBarItems = tabBarItems.length === 0;
+    const shouldSetMeasures = tabBarItems.length > 0 && measures.length === 0;
+
+    if (shouldSetTabBarItems) {
       const data = items.map(item => {
         return { ...item, ref: React.createRef() };
       });
       setTabBarItems(data);
     }
-    if (tabBarItems.length > 0 && measures.length === 0) {
-      let m = [];
+    if (shouldSetMeasures) {
+      let m: MeasuresProps[] = [];
       tabBarItems.forEach(i => {
         i.ref.current.measureLayout(
           containerRef.current,
+          // @ts-ignore
           (x, y, width, height) => {
             m.push({ x, y, width, height });
             if (m.length === tabBarItems.length) {
@@ -52,31 +57,31 @@ const TabBar: FC<TabBarProps> = ({ styles, items, defaultActiveIndex = 0 }) => {
     }
   }, [tabBarItems, measures, items]);
 
-  const TabBarItem = React.forwardRef(({ label }: TabBarItemProps, ref) => (
-    <TabBarItemPressable
-      accessibilityHint={`Select ${label}`}
-      accessibilityLabel={label}
-      accessible={true}
-      onPressIn={() => {}}
-      ref={ref}
+  const Indicator = () => (
+    <Animated.View
       style={[
-        STYLES.tabItem,
-        // { backgroundColor: index === 1 ? 'red' : 'blue' },
-      ]}>
-      <TabBarItemText style={STYLES.tabItemText}>{label}</TabBarItemText>
-    </TabBarItemPressable>
-  ));
+        STYLES.indicator,
+        // { width: 0, left: 0 }
+      ]}
+    />
+  );
 
   console.log({ tabBarItems, measures });
 
   return (
     <TabBarView ref={containerRef} style={[STYLES.container, styles]}>
-      <ActiveIndicator
-        pointerEvents={'box-none'}
-        style={STYLES.activeIndicator}
-      />
-      {tabBarItems.map((item: TabBarItemProps, index) => (
-        <TabBarItem {...item} key={`${item.label}` + index} ref={item.ref} />
+      <Indicator />
+      {tabBarItems.map(({ ref, label }: TabBarItemProps, index) => (
+        <TabBarItemPressable
+          key={`${label}-${index}`}
+          accessibilityHint={`Select ${label}`}
+          accessibilityLabel={label}
+          accessible={true}
+          onPressIn={() => {}}
+          ref={ref}
+          style={[STYLES.tabItem]}>
+          <TabBarItemText style={STYLES.tabItemText}>{label}</TabBarItemText>
+        </TabBarItemPressable>
       ))}
     </TabBarView>
   );

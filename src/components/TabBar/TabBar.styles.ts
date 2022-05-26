@@ -9,8 +9,11 @@ const STYLES = StyleSheet.create({
     borderRadius: 32,
     overflow: 'hidden',
   },
-  activeIndicator: {
+  indicator: {
     position: 'absolute',
+    backgroundColor: COLORS.white,
+    height: '100%',
+    width: 100,
   },
   tabItem: {
     padding: 20,

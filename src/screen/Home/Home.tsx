@@ -139,25 +139,7 @@ const Home: FC = () => {
         ]}>
         {renderSearchInput()}
       </Animated.View>
-
-      <TabBar
-        styles={{ margin: 50 }}
-        items={[
-          {
-            label: 'Calendar',
-            action: () => {
-              console.log('Place');
-            },
-          },
-          {
-            label: "I'm flexible",
-            action: () => {
-              console.log("I'm flexible");
-            },
-          },
-        ]}
-      />
-      {/* <Animated.SectionList
+      <Animated.SectionList
         ListHeaderComponent={renderSearchHeader}
         sections={sections}
         keyExtractor={keyExtractor}
@@ -168,7 +150,7 @@ const Home: FC = () => {
         stickyHeaderIndices={[0]}
         onScroll={AnimatedListOnScroll}
         scrollEventThrottle={SCROLL_EVENT_THROTTLE}
-      /> */}
+      />
     </SafeAreaView>
   );
 };

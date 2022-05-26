@@ -10,7 +10,9 @@ import {
 
 import { COLORS } from 'globals';
 import Home from 'screen/Home';
-// import Stay from 'screen/Stay';
+import Stay from 'screen/Stay';
+import Search from 'screen/Search';
+import TabBar from 'components/TabBar';
 // import { HomeTabs } from 'navigator';
 
 const App = () => {
@@ -23,9 +25,22 @@ const App = () => {
         translucent={true} // Android only :(
         backgroundColor={COLORS.sand}
       />
-
-      <Home />
-      {/* <Stay /> */}
+      {/* <Home />
+      <Search />
+      <Stay /> */}
+      <TabBar
+        styles={{ margin: 50 }}
+        items={[
+          {
+            label: 'Calendar',
+            action: () => {},
+          },
+          {
+            label: "I'm flexible",
+            action: () => {},
+          },
+        ]}
+      />
     </SafeAreaView>
   );
 };
