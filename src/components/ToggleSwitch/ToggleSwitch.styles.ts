@@ -6,17 +6,20 @@ const STYLES = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: COLORS.lightGrey,
     justifyContent: 'space-evenly',
-    borderRadius: 32,
+    borderRadius: 100,
     overflow: 'hidden',
+    borderWidth: 6,
+    borderColor: COLORS.lightGrey,
   },
   indicator: {
     position: 'absolute',
     backgroundColor: COLORS.white,
     height: '100%',
     width: '50%',
+    borderRadius: 100,
   },
   tabItem: {
-    padding: 20,
+    padding: 12,
     flex: 1,
     alignItems: 'center',
   },
@@ -24,4 +27,5 @@ const STYLES = StyleSheet.create({
     ...TYPOGRAPHY.base,
   },
 });
+
 export default STYLES;

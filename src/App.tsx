@@ -13,6 +13,7 @@ import Home from 'screen/Home';
 import Stay from 'screen/Stay';
 import Search from 'screen/Search';
 import TabBar from 'components/TabBar';
+import ToggleSwitch from 'components/ToggleSwitch';
 // import { HomeTabs } from 'navigator';
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
       {/* <Home />
       <Search />
       <Stay /> */}
-      <TabBar
+      <ToggleSwitch
         styles={{ margin: 50 }}
         items={[
           {
