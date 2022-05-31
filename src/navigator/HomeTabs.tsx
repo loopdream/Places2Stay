@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { COLORS } from 'globals';
 import Home from 'screen/Home';
 import Stay from 'screen/Stay';
+import SearchFlow from 'screen/SearchFlow';
 import NavHeader from 'components/NavHeader';
 
 const { Navigator: TabsNavigator, Screen: TabScreen } =
@@ -14,15 +15,13 @@ const { Navigator: TabsNavigator, Screen: TabScreen } =
 const HomeTabs = () => {
   const screenOptions = ({
     route,
-    navigation,
   }: {
     route: any; // todo
-    navigation: any; // todo
   }) => ({
     tabBarShowLabel: false,
     inactiveTintColor: COLORS.black,
     activeTintColor: COLORS.blue,
-    headerTitle: () => <NavHeader navigation={navigation} />,
+    headerTitle: () => <NavHeader />,
     headerStyle: { backgroundColor: COLORS.sand },
     tabBarIcon: ({ color }) => {
       const icons = {

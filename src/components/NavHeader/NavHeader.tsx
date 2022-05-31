@@ -1,22 +1,24 @@
 import React, { FC } from 'react';
 import { View as NavHeaderView, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconMCI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { COLORS } from 'globals';
 import STYLES from './NavHeader.styles';
+
 type TextNavHeaderProps = {
   style?: any;
-  navigation: any;
 };
 
-const NavHeader: FC<TextNavHeaderProps> = ({ style, navigation }) => {
+const NavHeader: FC<TextNavHeaderProps> = ({ style }) => {
+  const navigation = useNavigation();
+
   const bellOnPress = () => {
-    navigation.navigate('WebView', {});
+    // navigation.navigate('WebView', {});
+    console.log({ navigation });
   };
   const accountOnPress = () => {};
-
-  console.log('NavHeader', { navigation });
 
   return (
     <NavHeaderView style={[STYLES.container, style]}>

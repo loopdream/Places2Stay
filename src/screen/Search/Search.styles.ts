@@ -9,7 +9,7 @@ const STYLES = StyleSheet.create({
     width: '100%',
     zIndex: 1,
     height: '100%',
-    backgroundColor: COLORS.sand,
+    // backgroundColor: COLORS.sand,
   },
   textInput: {
     ...TYPOGRAPHY.base,

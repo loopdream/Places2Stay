@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
   TextInput,
-  View as ListItemView,
+  Pressable as ListItemView,
   View as SearchView,
   FlatList as SearchResultsList,
 } from 'react-native';
@@ -21,6 +22,8 @@ const Search: FC<SearchProps> = () => {
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(SEARCH_MOCK_DATA.cities);
 
+  const navigation = useNavigation();
+
   useEffect(() => {
     setSearchResults(SEARCH_MOCK_DATA.cities);
   }, []);
@@ -36,8 +39,15 @@ const Search: FC<SearchProps> = () => {
   const keyExtractor = (item: searchMockDataCityProps, index: number) =>
     `${item.name}-${index}`;
 
+  const itemOnPress = (item: searchMockDataCityProps) => {
+    // console.log(item.name);
+    navigation.navigate('SearchFlow', { city: item });
+  };
+
   const renderItem = ({ item }: { item: searchMockDataCityProps }) => (
-    <ListItemView style={STYLES.resultListItemView}>
+    <ListItemView
+      style={STYLES.resultListItemView}
+      onPress={() => itemOnPress(item)}>
       <Icon name="location-pin" color={COLORS.blue} size={36} />
       <Text style={STYLES.resultListItem}>{item.name}</Text>
     </ListItemView>

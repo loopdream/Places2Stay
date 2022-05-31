@@ -19,9 +19,7 @@ target 'Places2Stay' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
-  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
   target 'Places2StayTests' do
     inherit! :complete
