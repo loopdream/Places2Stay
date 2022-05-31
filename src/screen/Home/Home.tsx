@@ -119,14 +119,13 @@ const Home: FC = ({ navigation }) => {
       useNativeDriver: true,
     });
 
-    if (e.nativeEvent.contentOffset.y > SEARCH_HEADER_HEIGHT * 2) {
-      if (!scrollSearchHeaderVisible) {
-        showHideOnScrollSearch({ show: true });
-      }
-    } else {
-      if (scrollSearchHeaderVisible) {
-        showHideOnScrollSearch({ show: false });
-      }
+    const contentOffsetY = e.nativeEvent.contentOffset.y;
+    const thresholdOffset = SEARCH_HEADER_HEIGHT * 2;
+  
+    if (contentOffsetY > thresholdOffset) {
+      if (!scrollSearchHeaderVisible) showHideOnScrollSearch({ show: true });
+    } else 
+      if (scrollSearchHeaderVisible) showHideOnScrollSearch({ show: false });
     }
   };
 

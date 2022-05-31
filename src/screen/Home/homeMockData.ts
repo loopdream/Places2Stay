@@ -14,6 +14,101 @@ interface HomeMockDataProps {
   sections: { [key: string]: SectionProps };
 }
 
+const HOME_MOCK_DATA: HomeMockDataProps = {
+  sections: {
+    placeCtas: {
+      heading: 'Find your getaway',
+      description:
+        'Our spaces are designed for comfort - whether you are working, relaxing, or craving some spaces',
+      data: [
+        {
+          key: 1,
+          place: '408 St. Jacques | 1 Br',
+          location: 'Old Montreal, Montreal',
+          image: {
+            uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+          },
+          imageLabel: 'From $126',
+        },
+        {
+          key: 2,
+          place: '409 St. Jacques | 2 Br',
+          location: 'Old Montreal, Montreal',
+          image: {
+            uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+          },
+          imageLabel: 'From $126',
+        },
+        {
+          key: 3,
+          place: '409 St. Jacques | 2 Br',
+          location: 'Old Montreal, Montreal',
+          image: {
+            uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+          },
+          imageLabel: 'From $126',
+        },
+        {
+          key: 4,
+          place: '409 St. Jacques | 2 Br',
+          location: 'Old Montreal, Montreal',
+          image: {
+            uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
+          },
+          imageLabel: 'From $126',
+        },
+      ],
+    },
+    cityCtas: {
+      heading: '20+ cities to explore',
+      orientation: 'horizontal',
+      data: [
+        [
+          {
+            key: 1,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1597535973747-951442d5dbc7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
+            },
+            place: 'Miami',
+          },
+          {
+            key: 2,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
+            },
+            place: 'New York',
+            imageLabel: 'New',
+          },
+          {
+            key: 3,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1547401061-7fbd33ec9021?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
+            },
+            place: 'Montreal',
+          },
+          {
+            key: 4,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1554321585-ef3194b190cd?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
+            },
+            place: 'Vancouver',
+          },
+          {
+            key: 5,
+            image: {
+              uri: 'https://images.unsplash.com/photo-1586576782138-19304c43d0e1?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
+            },
+            place: 'Toronto',
+          },
+        ],
+      ],
+    },
+  },
+};
+
+export type { HomeMockDataProps, SectionProps, DataProps };
+export default HOME_MOCK_DATA;
+
 // const placeholderImage =
 //   'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80';
 
@@ -1896,98 +1991,3 @@ interface HomeMockDataProps {
 //     },
 //   },
 // };
-
-const HOME_MOCK_DATA: HomeMockDataProps = {
-  sections: {
-    placeCtas: {
-      heading: 'Find your getaway',
-      description:
-        'Our spaces are designed for comfort - whether you are working, relaxing, or craving some spaces',
-      data: [
-        {
-          key: 1,
-          place: '408 St. Jacques | 1 Br',
-          location: 'Old Montreal, Montreal',
-          image: {
-            uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
-          },
-          imageLabel: 'From $126',
-        },
-        {
-          key: 2,
-          place: '409 St. Jacques | 2 Br',
-          location: 'Old Montreal, Montreal',
-          image: {
-            uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
-          },
-          imageLabel: 'From $126',
-        },
-        {
-          key: 3,
-          place: '409 St. Jacques | 2 Br',
-          location: 'Old Montreal, Montreal',
-          image: {
-            uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
-          },
-          imageLabel: 'From $126',
-        },
-        {
-          key: 4,
-          place: '409 St. Jacques | 2 Br',
-          location: 'Old Montreal, Montreal',
-          image: {
-            uri: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80',
-          },
-          imageLabel: 'From $126',
-        },
-      ],
-    },
-    cityCtas: {
-      heading: '20+ cities to explore',
-      orientation: 'horizontal',
-      data: [
-        [
-          {
-            key: 1,
-            image: {
-              uri: 'https://images.unsplash.com/photo-1597535973747-951442d5dbc7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
-            },
-            place: 'Miami',
-          },
-          {
-            key: 2,
-            image: {
-              uri: 'https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
-            },
-            place: 'New York',
-            imageLabel: 'New',
-          },
-          {
-            key: 3,
-            image: {
-              uri: 'https://images.unsplash.com/photo-1547401061-7fbd33ec9021?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
-            },
-            place: 'Montreal',
-          },
-          {
-            key: 4,
-            image: {
-              uri: 'https://images.unsplash.com/photo-1554321585-ef3194b190cd?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
-            },
-            place: 'Vancouver',
-          },
-          {
-            key: 5,
-            image: {
-              uri: 'https://images.unsplash.com/photo-1586576782138-19304c43d0e1?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300',
-            },
-            place: 'Toronto',
-          },
-        ],
-      ],
-    },
-  },
-};
-
-export type { HomeMockDataProps, SectionProps, DataProps };
-export default HOME_MOCK_DATA;

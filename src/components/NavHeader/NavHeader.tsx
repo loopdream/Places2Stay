@@ -16,7 +16,7 @@ const NavHeader: FC<TextNavHeaderProps> = ({ style }) => {
 
   const bellOnPress = () => {
     // navigation.navigate('WebView', {});
-    console.log({ navigation });
+    // console.log({ navigation });
   };
   const accountOnPress = () => {};
 

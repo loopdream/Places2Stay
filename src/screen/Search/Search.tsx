@@ -41,6 +41,7 @@ const Search: FC<SearchProps> = () => {
 
   const itemOnPress = (item: searchMockDataCityProps) => {
     // console.log(item.name);
+    // @ts-ignore
     navigation.navigate('SearchFlow', { city: item });
   };
 

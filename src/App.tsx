@@ -8,10 +8,7 @@ import { HomeStack } from 'navigator';
 const App = () => {
   return (
     <SafeAreaView style={STYLES.container}>
-      <StatusBar
-        translucent={true} // Android only :(
-        backgroundColor={COLORS.sand}
-      />
+      <StatusBar translucent={true} backgroundColor={COLORS.sand} />
       <NavigationContainer>
         <HomeStack />
       </NavigationContainer>
