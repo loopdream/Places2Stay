@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 
 import { LABELS } from 'globals';
-import TabBar from 'components/TabBar';
 
 import STYLES, {
   HORIZONTAL_LIST_ITEM_WIDTH,

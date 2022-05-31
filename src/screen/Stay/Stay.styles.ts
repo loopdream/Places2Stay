@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { COLORS, TYPOGRAPHY } from 'globals';
 
 const STYLES = StyleSheet.create({
-  container: { flex: 1 },
+  container: { backgroundColor: COLORS.sand, flex: 1 },
   margins: { marginHorizontal: 30, marginTop: 30 },
   titleText: { ...TYPOGRAPHY.title },
   subTitleText: { color: COLORS.grey, marginTop: 8, fontSize: 12 },

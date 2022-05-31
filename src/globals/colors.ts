@@ -1,5 +1,6 @@
 const COLORS = {
   sand: '#FFF1D2',
+  lightSand: '#FFF8E8',
   black: '#000000',
   grey: '#858585',
   lightGrey: '#E1DFD8',

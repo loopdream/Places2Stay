@@ -11,6 +11,7 @@ const STYLES = StyleSheet.create({
     flex: 1,
     position: 'relative',
     overflow: 'hidden',
+    backgroundColor: COLORS.sand,
   },
   list: {},
   horizontalList: {

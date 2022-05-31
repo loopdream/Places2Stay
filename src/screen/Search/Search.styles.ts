@@ -8,6 +8,8 @@ const STYLES = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     zIndex: 1,
+    height: '100%',
+    backgroundColor: COLORS.sand,
   },
   textInput: {
     ...TYPOGRAPHY.base,
@@ -24,6 +26,7 @@ const STYLES = StyleSheet.create({
     textAlign: 'center',
   },
   resultList: { marginTop: 30 },
+  resultListItemView: { flex: 1, flexDirection: 'row', alignItems: 'center' },
   resultListItem: { paddingVertical: 12 },
 });
 

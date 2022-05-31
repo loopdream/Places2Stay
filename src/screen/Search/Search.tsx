@@ -1,11 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
 import {
   TextInput,
+  View as ListItemView,
   View as SearchView,
   FlatList as SearchResultsList,
 } from 'react-native';
 
-import { LABELS } from 'globals';
+import Icon from 'react-native-vector-icons/Entypo';
+
+import { LABELS, COLORS } from 'globals';
 import { Text } from 'components/base/Text';
 import SEARCH_MOCK_DATA, { searchMockDataCityProps } from './searchMockData';
 import STYLES from './Search.styles';
@@ -34,7 +37,10 @@ const Search: FC<SearchProps> = () => {
     `${item.name}-${index}`;
 
   const renderItem = ({ item }: { item: searchMockDataCityProps }) => (
-    <Text style={STYLES.resultListItem}>{item.name}</Text>
+    <ListItemView style={STYLES.resultListItemView}>
+      <Icon name="location-pin" color={COLORS.blue} size={36} />
+      <Text style={STYLES.resultListItem}>{item.name}</Text>
+    </ListItemView>
   );
 
   return (
