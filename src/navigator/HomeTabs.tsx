@@ -6,18 +6,24 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { COLORS } from 'globals';
 import Home from 'screen/Home';
 import Stay from 'screen/Stay';
-
-import Search from 'screen/Search';
+import NavHeader from 'components/NavHeader';
 
 const { Navigator: TabsNavigator, Screen: TabScreen } =
   createBottomTabNavigator();
 
 const HomeTabs = () => {
-  const screenOptions = ({ route }: { route: any }) => ({
+  const screenOptions = ({
+    route,
+    navigation,
+  }: {
+    route: any; // todo
+    navigation: any; // todo
+  }) => ({
     tabBarShowLabel: false,
-    headerShown: false,
     inactiveTintColor: COLORS.black,
     activeTintColor: COLORS.blue,
+    headerTitle: () => <NavHeader navigation={navigation} />,
+    headerStyle: { backgroundColor: COLORS.sand },
     tabBarIcon: ({ color }) => {
       const icons = {
         Home: 'ios-home',
@@ -35,7 +41,6 @@ const HomeTabs = () => {
   return (
     <TabsNavigator screenOptions={screenOptions}>
       <TabScreen name="Home" key="Home" component={Home} />
-      {/* <TabScreen name="Search" key="Search" component={Search} /> */}
       <TabScreen name="Stay" key="Stay" component={Stay} />
     </TabsNavigator>
   );

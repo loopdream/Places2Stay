@@ -1,17 +1,41 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
+import { WebView } from 'react-native-webview';
 
-import Home from 'screen/Home';
-import Stay from 'screen/Stay';
+import Search from 'screen/Search';
+import { HomeTabs } from 'navigator';
 
-const { Navigator, Screen } = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const HomeStack = () => {
+  const {
+    Navigator: StackNavigator,
+    Group: TabGroup,
+    Group: ModalGroup,
+    Screen,
+  } = Stack;
+
+  const StackNavigatorOptions = {
+    headerShown: false,
+  };
+
+  const WebViewComponent = () => (
+    <WebView
+      source={{ html: '<h1>Hello world</h1>' }}
+      style={{ flex: 1, height: '100%', width: '100%' }}
+    />
+  );
+
   return (
-    <Navigator>
-      <Screen name="Home" component={Home} options={{ title: 'Home Page' }} />
-      <Screen name="Stay" component={Stay} />
-    </Navigator>
+    <StackNavigator screenOptions={StackNavigatorOptions}>
+      <TabGroup>
+        <Screen name="HomeTabs" component={HomeTabs} key="Tab" />
+      </TabGroup>
+      <ModalGroup screenOptions={{ presentation: 'modal' }} key="Search">
+        <Screen name="Search" component={Search} key="Search" />
+        <Screen name="WebView" component={WebViewComponent} key="WebView" />
+      </ModalGroup>
+    </StackNavigator>
   );
 };
 

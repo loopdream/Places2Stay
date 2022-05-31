@@ -57,6 +57,8 @@
 		62F2C4C3ED1040AD8C61904D /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F399B3B1C6C245038089363D /* Octicons.ttf */; };
 		583370FA7917431CA008216F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3CDB198444413A8E5C56C5 /* SimpleLineIcons.ttf */; };
 		A4CA4EA5BE894A17B9358A5A /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA40FD2244B64110B447DFF4 /* Zocial.ttf */; };
+		63AF7069B68F461DB6C70807 /* calendarTabIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = F0A0BBE1434D4450B5276DDC /* calendarTabIcon.svg */; };
+		7B4B9BE6F4DF41BBB967175A /* homeTasIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = E03EF8EE6FF7447B836C53B5 /* homeTasIcon.svg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		F399B3B1C6C245038089363D /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5A3CDB198444413A8E5C56C5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		FA40FD2244B64110B447DFF4 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F0A0BBE1434D4450B5276DDC /* calendarTabIcon.svg */ = {isa = PBXFileReference; name = "calendarTabIcon.svg"; path = "../src/assets/icons/calendarTabIcon.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E03EF8EE6FF7447B836C53B5 /* homeTasIcon.svg */ = {isa = PBXFileReference; name = "homeTasIcon.svg"; path = "../src/assets/icons/homeTasIcon.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +285,8 @@
 				F399B3B1C6C245038089363D /* Octicons.ttf */,
 				5A3CDB198444413A8E5C56C5 /* SimpleLineIcons.ttf */,
 				FA40FD2244B64110B447DFF4 /* Zocial.ttf */,
+				F0A0BBE1434D4450B5276DDC /* calendarTabIcon.svg */,
+				E03EF8EE6FF7447B836C53B5 /* homeTasIcon.svg */,
 			);
 			name = Resources;
 			path = "";
@@ -425,6 +431,8 @@
 				62F2C4C3ED1040AD8C61904D /* Octicons.ttf in Resources */,
 				583370FA7917431CA008216F /* SimpleLineIcons.ttf in Resources */,
 				A4CA4EA5BE894A17B9358A5A /* Zocial.ttf in Resources */,
+				63AF7069B68F461DB6C70807 /* calendarTabIcon.svg in Resources */,
+				7B4B9BE6F4DF41BBB967175A /* homeTasIcon.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

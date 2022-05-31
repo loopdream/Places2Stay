@@ -2,9 +2,10 @@ import React, { FC, useState, useEffect, useRef } from 'react';
 import {
   SafeAreaView,
   ScrollView,
-  TextInput as SearchInput,
   View as SearchView,
   Animated,
+  Text,
+  Pressable as SearchCTA,
 } from 'react-native';
 
 import { LABELS } from 'globals';
@@ -28,7 +29,7 @@ const TIMING_ANIMATION_OPTIONS = {
   useNativeDriver: true,
 };
 
-const Home: FC = () => {
+const Home: FC = ({ navigation }) => {
   const [sections, setSections] = useState([] as any);
   const [animateStyle, setAnimateStyle] = useState([] as any);
   const [scrollSearchHeaderVisible, setScrollSearchHeaderVisible] =
@@ -102,14 +103,15 @@ const Home: FC = () => {
   );
 
   const renderSearchInput = () => (
-    <SearchInput
+    <SearchCTA
+      style={STYLES.searchCTA}
       accessibilityHint={LABELS.search.inputAccessibilityHint}
       accessibilityLabel={LABELS.search.inputAccessibilityLabel}
-      accessible={true}
-      keyboardType="default"
-      placeholder={LABELS.home.searchInputPlaceholder}
-      style={STYLES.searchInput}
-    />
+      onPress={() => navigation.navigate('Search')}>
+      <Text style={STYLES.searchCTAText}>
+        {LABELS.home.searchInputPlaceholder}
+      </Text>
+    </SearchCTA>
   );
 
   const AnimatedListOnScroll = (e: any) => {
